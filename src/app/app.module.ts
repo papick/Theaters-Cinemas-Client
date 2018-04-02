@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import {AccountService} from './service/account.service';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {RepertoryComponent} from './repertory/repertory.component';
+
 
 
 
@@ -26,7 +28,7 @@ import {HttpClientModule} from '@angular/common/http';
     LogInFormComponentComponent,
     CinemaTheaterComponentComponent,
     HomeComponent,
-    // RepertoryComponent
+    RepertoryComponent,
   ],
   imports: [
     BrowserModule,
