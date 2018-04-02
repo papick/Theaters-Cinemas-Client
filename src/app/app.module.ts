@@ -4,16 +4,19 @@ import { NgModule } from '@angular/core';
 import { routes } from './app.router';
 
 import { AppComponent } from './app.component';
-import { HeaderComponentComponent } from './header-component/header-component.component';
-import { MainPanelComponent } from './main-panel/main-panel.component';
-import { RegisterFormComponentComponent } from './register-form-component/register-form-component.component';
-import { LogInFormComponentComponent } from './log-in-form-component/log-in-form-component.component';
-import { CinemaTheaterComponentComponent } from './cinema-theater-component/cinema-theater-component.component';
-import { HomeComponent } from './home/home.component';
-import {AccountService} from './service/account.service';
+import { HeaderComponentComponent } from './components/header-component/header-component.component';
+import { MainPanelComponent } from './components/main-panel/main-panel.component';
+import { RegisterFormComponentComponent } from './components/register-form-component/register-form-component.component';
+import { LogInFormComponentComponent } from './components/log-in-form-component/log-in-form-component.component';
+import { CinemaTheaterComponentComponent } from './components/cinema-theater-component/cinema-theater-component.component';
+import { HomeComponent } from './components/home/home.component';
+import {AccountService} from './services/account.service';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {RepertoryComponent} from './repertory/repertory.component';
+import {HttpModule} from '@angular/http';
+import {RepertoryComponent} from './components/repertory/repertory.component';
+import {InstitutionService} from './services/institution.service';
+import { CinemaTheaterProfileComponent } from './components/cinema-theater-profile/cinema-theater-profile.component';
 
 
 
@@ -29,14 +32,16 @@ import {RepertoryComponent} from './repertory/repertory.component';
     CinemaTheaterComponentComponent,
     HomeComponent,
     RepertoryComponent,
+    CinemaTheaterProfileComponent,
   ],
   imports: [
     BrowserModule,
     routes,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [AccountService],
+  providers: [AccountService,InstitutionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

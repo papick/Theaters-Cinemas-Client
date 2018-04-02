@@ -1,20 +1,26 @@
-import {ModuleWithProviders} from '@angular/core';
+ import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {HomeComponent} from './home/home.component';
-import {LogInFormComponentComponent} from './log-in-form-component/log-in-form-component.component';
-import {RegisterFormComponentComponent} from './register-form-component/register-form-component.component';
-import {CinemaTheaterComponentComponent} from './cinema-theater-component/cinema-theater-component.component';
-import {RepertoryComponent} from './repertory/repertory.component';
+import {HomeComponent} from './components/home/home.component';
+import {LogInFormComponentComponent} from './components/log-in-form-component/log-in-form-component.component';
+import {RegisterFormComponentComponent} from './components/register-form-component/register-form-component.component';
+import {CinemaTheaterComponentComponent} from './components/cinema-theater-component/cinema-theater-component.component';
+import {CinemaTheaterProfileComponent} from './components/cinema-theater-profile/cinema-theater-profile.component';
+
+import {RepertoryComponent} from './components/repertory/repertory.component';
 
 export const router: Routes = [
 
   {path: '', redirectTo: 'home' , pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'log-in-form-component', component: LogInFormComponentComponent},
-  {path: 'register-form-component', component: RegisterFormComponentComponent},
-  {path: 'cinema-theater-component', component: CinemaTheaterComponentComponent}
-  // {path: 'repertory', component: RepertoryComponent}
+  {path: 'login', component: LogInFormComponentComponent},
+  {path: 'register', component: RegisterFormComponentComponent},
+  {path: 'cinemas', component: CinemaTheaterComponentComponent},
+  {path: 'cinemas/:name', component: CinemaTheaterProfileComponent},
+  {path: 'theaters', component: CinemaTheaterComponentComponent},
+  {path: 'theaters/:name', component: CinemaTheaterProfileComponent},
+  {path: 'cinemas/:name/repertory', component: RepertoryComponent},
+  {path: 'theaters/:name/repertory', component: RepertoryComponent}
 
 
 ];
