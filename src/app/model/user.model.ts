@@ -1,3 +1,5 @@
+import {Friendship} from './friendship.model';
+
 export class User {
   constructor(public id?: number,
               public email?: string,
@@ -5,6 +7,8 @@ export class User {
               public ime?: string,
               public prezime?: string,
               public grad?: string,
-              public brTelefona?: number) {}
+              public brTelefona?: number,
+              public friendList?: Array<Friendship>) {
+  }
 
 }

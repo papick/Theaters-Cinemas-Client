@@ -17,9 +17,9 @@ import {HttpModule} from '@angular/http';
 import {RepertoryComponent} from './components/repertory/repertory.component';
 import {InstitutionService} from './services/institution.service';
 import { CinemaTheaterProfileComponent } from './components/cinema-theater-profile/cinema-theater-profile.component';
-
-
-
+import {PeopleComponent} from './components/people-component/people.component';
+import {UserService} from './services/user.service';
+import { RequestsComponent } from './components/requests-component/requests.component';
 
 
 @NgModule({
@@ -33,6 +33,8 @@ import { CinemaTheaterProfileComponent } from './components/cinema-theater-profi
     HomeComponent,
     RepertoryComponent,
     CinemaTheaterProfileComponent,
+    PeopleComponent,
+    RequestsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,7 @@ import { CinemaTheaterProfileComponent } from './components/cinema-theater-profi
     HttpClientModule,
     HttpModule
   ],
-  providers: [AccountService,InstitutionService],
+  providers: [AccountService, InstitutionService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

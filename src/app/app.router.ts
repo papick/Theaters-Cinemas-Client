@@ -8,6 +8,8 @@ import {CinemaTheaterComponentComponent} from './components/cinema-theater-compo
 import {CinemaTheaterProfileComponent} from './components/cinema-theater-profile/cinema-theater-profile.component';
 
 import {RepertoryComponent} from './components/repertory/repertory.component';
+ import {PeopleComponent} from './components/people-component/people.component';
+ import {RequestsComponent} from './components/requests-component/requests.component';
 
 export const router: Routes = [
 
@@ -20,7 +22,9 @@ export const router: Routes = [
   {path: 'theaters', component: CinemaTheaterComponentComponent},
   {path: 'theaters/:name', component: CinemaTheaterProfileComponent},
   {path: 'cinemas/:name/repertory', component: RepertoryComponent},
-  {path: 'theaters/:name/repertory', component: RepertoryComponent}
+  {path: 'theaters/:name/repertory', component: RepertoryComponent},
+  {path: 'people', component: PeopleComponent},
+  {path: 'requests', component: RequestsComponent}
 
 
 ];

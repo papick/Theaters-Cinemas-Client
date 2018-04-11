@@ -27,6 +27,7 @@ export class LogInFormComponentComponent implements OnInit {
       }
       localStorage.setItem('loggedUser', JSON.stringify(user));
       this.router.navigate(['/home']);
+      window.location.reload();
 
     });
   }

@@ -1,4 +1,4 @@
-p{
+#welcome{
   font-size: 150px;
   color: cadetblue;
 }
@@ -6,4 +6,13 @@ div{
   position: absolute;
   top: 10%;
   left: 10%;
+}
+
+#div_profile{
+  float:left;
+  height:100%;
+ }
+
+#div_friends{
+  margin-left:50%;
 }
