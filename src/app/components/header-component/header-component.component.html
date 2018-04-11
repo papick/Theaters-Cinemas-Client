@@ -1,0 +1,38 @@
+
+<div class = "header" >
+   <a routerLink="login" *ngIf="loggedUser === null">
+  <div class = "buttons" id="log">
+      Log in
+  </div>
+   </a>
+
+  <a routerLink="register" *ngIf="loggedUser === null">
+  <div class = "buttons" id="reg" >
+    Register
+  </div>
+  </a>
+
+  <a routerLink="home" *ngIf="loggedUser !== null">
+    <div class = "buttons" id="logout" >
+      Logout
+    </div>
+  </a>
+
+  <a routerLink="home">
+  <div class = "buttons" id="home" >
+    Home
+  </div>
+  </a>
+  <a routerLink="cinemas">
+  <div class = "buttons" id="cinema" >
+    Cinema
+  </div>
+  </a>
+  <a routerLink="theaters">
+  <div class = "buttons" id="theater" >
+    Theater
+  </div>
+  </a>
+
+
+</div>
