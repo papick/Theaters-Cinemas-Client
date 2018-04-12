@@ -12,6 +12,13 @@ import {NewOfferComponentComponent} from './new-offer-component/new-offer-compon
 import {NewOfferWrapperComponentComponent} from './new-offer-wrapper-component/new-offer-wrapper-component.component';
 import {UsedOfferWrapperComponentComponent} from './used-offer-wrapper-component/used-offer-wrapper-component.component';
 
+
+import {CinemaTheaterProfileComponent} from './components/cinema-theater-profile/cinema-theater-profile.component';
+
+
+ import {PeopleComponent} from './components/people-component/people.component';
+ import {RequestsComponent} from './components/requests-component/requests.component';
+
 export const router: Routes = [
 
   {path: '', redirectTo: 'home' , pathMatch: 'full'},
@@ -26,6 +33,16 @@ export const router: Routes = [
       {path: 'new-offer-wrapper', component: NewOfferWrapperComponentComponent}
       ]}
 
+  {path: 'login', component: LogInFormComponentComponent},
+  {path: 'register', component: RegisterFormComponentComponent},
+  {path: 'cinemas', component: CinemaTheaterComponentComponent},
+  {path: 'cinemas/:name', component: CinemaTheaterProfileComponent},
+  {path: 'theaters', component: CinemaTheaterComponentComponent},
+  {path: 'theaters/:name', component: CinemaTheaterProfileComponent},
+  {path: 'cinemas/:name/repertory', component: RepertoryComponent},
+  {path: 'theaters/:name/repertory', component: RepertoryComponent},
+  {path: 'people', component: PeopleComponent},
+  {path: 'requests', component: RequestsComponent}
 
 
 ];

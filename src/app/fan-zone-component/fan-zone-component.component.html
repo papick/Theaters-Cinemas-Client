@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="header">
+
+    <a [routerLink]="['new-offer-wrapper']">
+    <div class="buttons" >
+
+      Items from cinema/theaters
+
+    </div>
+    </a>
+
+    <a [routerLink]="['used-offer-wrapper']">
+    <div class="buttons" >
+      Items from users
+    </div>
+    </a>
+
+  </div>
+  <div class="main">
+    <router-outlet></router-outlet>
+
+  </div>
+
+</div>

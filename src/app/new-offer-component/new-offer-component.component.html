@@ -1,0 +1,39 @@
+<p-dataList [value]="newOffers" [paginator]="true" [rows]="5">
+  <p-header>
+    List of items
+  </p-header>
+  <ng-template let-newOffer pTemplate="item">
+    <div class="ui-g ui-fluid car-item">
+      <div class="ui-g-12 ui-md-3" style="text-align:center">
+        <img src="../../assets/defalutImage.jpeg">
+      </div>
+      <div class="ui-g-12 ui-md-9 car-details">
+        <div class="ui-g">
+          <div class="ui-g-2 ui-sm-6">Name: </div>
+          <div class="ui-g-10 ui-sm-6">{{newOffer.name}}</div>
+
+          <div class="ui-g-2 ui-sm-6">Description: </div>
+          <div class="ui-g-10 ui-sm-6">{{newOffer.description}}</div>
+
+          <div class="ui-g-2 ui-sm-6">Date: </div>
+          <div class="ui-g-10 ui-sm-6">{{newOffer.date}}</div>
+
+          <button>
+            Edit
+          </button>
+
+          <button>
+            Delete
+          </button>
+
+
+        </div>
+      </div>
+    </div>
+    <hr>
+  </ng-template>
+</p-dataList>
+
+
+
+

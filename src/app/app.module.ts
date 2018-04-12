@@ -29,6 +29,13 @@ import {UsedOfferService} from './used-offer-component/usedOfferService';
 
 
 
+import {HttpModule} from '@angular/http';
+
+import {InstitutionService} from './services/institution.service';
+import { CinemaTheaterProfileComponent } from './components/cinema-theater-profile/cinema-theater-profile.component';
+import {PeopleComponent} from './components/people-component/people.component';
+import {UserService} from './services/user.service';
+import { RequestsComponent } from './components/requests-component/requests.component';
 
 
 @NgModule({
@@ -45,16 +52,22 @@ import {UsedOfferService} from './used-offer-component/usedOfferService';
     NewOfferComponentComponent,
     UsedOfferComponentComponent,
     NewOfferWrapperComponentComponent,
-    UsedOfferWrapperComponentComponent
+    UsedOfferWrapperComponentComponent,
+    CinemaTheaterProfileComponent,
+    PeopleComponent,
+    RequestsComponent,
   ],
   imports: [
     BrowserModule,
     routes,
     FormsModule,
     HttpClientModule,
-    DataListModule
+    DataListModule,
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [AccountService , NewOfferService, UsedOfferService],
+  providers: [AccountService , NewOfferService, UsedOfferService, InstitutionService , UserService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
