@@ -1,11 +1,37 @@
-<p-dataList [value]="newOffers" [paginator]="true" [rows]="5">
+<button class="addButton" (click)="showAddDialog()">
+  add new item
+</button>
+
+<p-dialog header="Add item" [(visible)]="displayAdd">
+  <form #offerForm="ngForm" (ngSubmit)="addItem(offerForm)">
+  <p>Name:</p>
+  <input type="text" name="name" [(ngModel)]="name">
+  <p>Description:</p>
+  <input type="text" name="description" [(ngModel)]="description">
+
+    <p>Date:</p>
+    <input type="text" name="date" [(ngModel)]="date">
+
+
+
+  <br>
+  <br>
+  <button type="submit">
+    add
+  </button>
+
+  </form>
+</p-dialog>
+
+<p-dataList [value]="newOffers" [paginator]="true" [rows]="5" class="lista">
+
   <p-header>
     List of items
   </p-header>
   <ng-template let-newOffer pTemplate="item">
     <div class="ui-g ui-fluid car-item">
       <div class="ui-g-12 ui-md-3" style="text-align:center">
-        <img src="../../assets/defalutImage.jpeg">
+        <img src="../../assets/defaultImage.jpg">
       </div>
       <div class="ui-g-12 ui-md-9 car-details">
         <div class="ui-g">
@@ -18,11 +44,27 @@
           <div class="ui-g-2 ui-sm-6">Date: </div>
           <div class="ui-g-10 ui-sm-6">{{newOffer.date}}</div>
 
-          <button>
+          <p-dialog header="Edit item" [(visible)]="displayEdit">
+            <p>Name:</p>
+            <input type="text">
+            <p>Description:</p>
+            <input type="text">
+            <p>Date:</p>
+            <input type="date">
+            <br>
+            <br>
+            <button>
+              save
+            </button>
+          </p-dialog>
+
+          <button (click)="showEditDialog()">
             Edit
           </button>
 
-          <button>
+
+
+          <button (click)="deleteItem(newOffer.id)">
             Delete
           </button>
 

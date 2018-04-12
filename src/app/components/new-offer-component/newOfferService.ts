@@ -15,9 +15,11 @@ export class NewOfferService {
     return this.http.get('http://localhost:8080/api/newoffer/');
   }
 
-  /*deleteOffer(){
-    return this.http.delete("http://localhost:8080/api/newoffer/{}")
-  */
-
+  deleteOffer(id: Number) {
+    return this.http.delete('http://localhost:8080/api/newoffer/' + id);
+  }
+  addOffer(item: any) {
+    return this.http.post('http://localhost:8080/api/newoffer/', item);
+  }
 }
 

@@ -15,7 +15,7 @@ import { LogInFormComponentComponent } from './components/log-in-form-component/
 import { CinemaTheaterComponentComponent } from './components/cinema-theater-component/cinema-theater-component.component';
 import { HomeComponent } from './components/home/home.component';
 import {AccountService} from './services/account.service';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, NgModel} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RepertoryComponent} from './components/repertory/repertory.component';
 import { FanZoneComponentComponent } from './components/fan-zone-component/fan-zone-component.component';
@@ -26,7 +26,7 @@ import { NewOfferWrapperComponentComponent } from './components/new-offer-wrappe
 import { UsedOfferWrapperComponentComponent } from './components/used-offer-wrapper-component/used-offer-wrapper-component.component';
 import {UsedOfferService} from './components/used-offer-component/usedOfferService';
 
-
+import {DialogModule} from 'primeng/dialog';
 
 
 import {HttpModule} from '@angular/http';
@@ -36,6 +36,7 @@ import { CinemaTheaterProfileComponent } from './components/cinema-theater-profi
 import {PeopleComponent} from './components/people-component/people.component';
 import {UserService} from './services/user.service';
 import { RequestsComponent } from './components/requests-component/requests.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -56,15 +57,20 @@ import { RequestsComponent } from './components/requests-component/requests.comp
     CinemaTheaterProfileComponent,
     PeopleComponent,
     RequestsComponent,
+
+
   ],
   imports: [
     BrowserModule,
     routes,
     FormsModule,
-    HttpClientModule,
     DataListModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    DialogModule,
+    BrowserAnimationsModule
+
+
   ],
   providers: [AccountService , NewOfferService, UsedOfferService, InstitutionService , UserService],
 

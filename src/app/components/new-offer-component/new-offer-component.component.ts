@@ -11,11 +11,30 @@ export class NewOfferComponentComponent implements OnInit {
 
 
   newOffers: any;
+  displayAdd = false;
+  displayEdit = false;
+  item;
 
   constructor(private newOfferService: NewOfferService) { }
 
   ngOnInit() {
     this.newOfferService.getNewOffer().subscribe(newOffers => this.newOffers = newOffers);
+  }
+  addItem(item) {
+    this.newOfferService.addOffer(item.value).subscribe((ok) =>
+      this.newOfferService.getNewOffer().subscribe(newOffers => this.newOffers = newOffers));
+  }
+  deleteItem(id: Number) {
+    this.newOfferService.deleteOffer(id).subscribe((ok) => console.log(ok));
+  }
+
+  showAddDialog() {
+    console.log('pera');
+    this.displayAdd = true;
+  }
+
+  showEditDialog() {
+    this.displayEdit = true;
   }
 
 }
