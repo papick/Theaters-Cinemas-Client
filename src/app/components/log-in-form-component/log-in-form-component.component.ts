@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AccountService} from '../service/account.service';
+import {AccountService} from '../../services/account.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -27,6 +27,7 @@ export class LogInFormComponentComponent implements OnInit {
       }
       localStorage.setItem('loggedUser', JSON.stringify(user));
       this.router.navigate(['/home']);
+      window.location.reload();
 
     });
   }

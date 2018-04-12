@@ -8,23 +8,23 @@ import {AccordionModule} from 'primeng/accordion';
 import {MenuItem} from 'primeng/api';
 
 import { AppComponent } from './app.component';
-import { HeaderComponentComponent } from './header-component/header-component.component';
-import { MainPanelComponent } from './main-panel/main-panel.component';
-import { RegisterFormComponentComponent } from './register-form-component/register-form-component.component';
-import { LogInFormComponentComponent } from './log-in-form-component/log-in-form-component.component';
-import { CinemaTheaterComponentComponent } from './cinema-theater-component/cinema-theater-component.component';
-import { HomeComponent } from './home/home.component';
-import {AccountService} from './service/account.service';
+import { HeaderComponentComponent } from './components/header-component/header-component.component';
+import { MainPanelComponent } from './components/main-panel/main-panel.component';
+import { RegisterFormComponentComponent } from './components/register-form-component/register-form-component.component';
+import { LogInFormComponentComponent } from './components/log-in-form-component/log-in-form-component.component';
+import { CinemaTheaterComponentComponent } from './components/cinema-theater-component/cinema-theater-component.component';
+import { HomeComponent } from './components/home/home.component';
+import {AccountService} from './services/account.service';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {RepertoryComponent} from './repertory/repertory.component';
-import { FanZoneComponentComponent } from './fan-zone-component/fan-zone-component.component';
-import { NewOfferComponentComponent } from './new-offer-component/new-offer-component.component';
-import { UsedOfferComponentComponent } from './used-offer-component/used-offer-component.component';
-import {NewOfferService} from './new-offer-component/newOfferService';
-import { NewOfferWrapperComponentComponent } from './new-offer-wrapper-component/new-offer-wrapper-component.component';
-import { UsedOfferWrapperComponentComponent } from './used-offer-wrapper-component/used-offer-wrapper-component.component';
-import {UsedOfferService} from './used-offer-component/usedOfferService';
+import {RepertoryComponent} from './components/repertory/repertory.component';
+import { FanZoneComponentComponent } from './components/fan-zone-component/fan-zone-component.component';
+import { NewOfferComponentComponent } from './components/new-offer-component/new-offer-component.component';
+import { UsedOfferComponentComponent } from './components/used-offer-component/used-offer-component.component';
+import {NewOfferService} from './components/new-offer-component/newOfferService';
+import { NewOfferWrapperComponentComponent } from './components/new-offer-wrapper-component/new-offer-wrapper-component.component';
+import { UsedOfferWrapperComponentComponent } from './components/used-offer-wrapper-component/used-offer-wrapper-component.component';
+import {UsedOfferService} from './components/used-offer-component/usedOfferService';
 
 
 

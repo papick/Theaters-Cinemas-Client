@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../model/user.model';
-import {AccountService} from '../service/account.service';
+import {User} from '../../model/user.model';
+import {AccountService} from '../../services/account.service';
 
 @Component({
   selector: 'app-register-form-component',

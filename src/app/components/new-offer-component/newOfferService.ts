@@ -8,7 +8,8 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class NewOfferService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getNewOffer() {
     return this.http.get('http://localhost:8080/api/newoffer/');
@@ -16,5 +17,7 @@ export class NewOfferService {
 
   /*deleteOffer(){
     return this.http.delete("http://localhost:8080/api/newoffer/{}")
-  /*
+  */
+
 }
+

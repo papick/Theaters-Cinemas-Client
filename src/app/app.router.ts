@@ -1,16 +1,16 @@
 import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {HomeComponent} from './home/home.component';
-import {LogInFormComponentComponent} from './log-in-form-component/log-in-form-component.component';
-import {RegisterFormComponentComponent} from './register-form-component/register-form-component.component';
-import {CinemaTheaterComponentComponent} from './cinema-theater-component/cinema-theater-component.component';
-import {RepertoryComponent} from './repertory/repertory.component';
-import {FanZoneComponentComponent} from './fan-zone-component/fan-zone-component.component';
-import {UsedOfferComponentComponent} from './used-offer-component/used-offer-component.component';
-import {NewOfferComponentComponent} from './new-offer-component/new-offer-component.component';
-import {NewOfferWrapperComponentComponent} from './new-offer-wrapper-component/new-offer-wrapper-component.component';
-import {UsedOfferWrapperComponentComponent} from './used-offer-wrapper-component/used-offer-wrapper-component.component';
+import {HomeComponent} from './components/home/home.component';
+import {LogInFormComponentComponent} from './components/log-in-form-component/log-in-form-component.component';
+import {RegisterFormComponentComponent} from './components/register-form-component/register-form-component.component';
+import {CinemaTheaterComponentComponent} from './components/cinema-theater-component/cinema-theater-component.component';
+import {RepertoryComponent} from './components/repertory/repertory.component';
+import {FanZoneComponentComponent} from './components/fan-zone-component/fan-zone-component.component';
+import {UsedOfferComponentComponent} from './components/used-offer-component/used-offer-component.component';
+import {NewOfferComponentComponent} from './components/new-offer-component/new-offer-component.component';
+import {NewOfferWrapperComponentComponent} from './components/new-offer-wrapper-component/new-offer-wrapper-component.component';
+import {UsedOfferWrapperComponentComponent} from './components/used-offer-wrapper-component/used-offer-wrapper-component.component';
 
 
 import {CinemaTheaterProfileComponent} from './components/cinema-theater-profile/cinema-theater-profile.component';
@@ -31,7 +31,7 @@ export const router: Routes = [
     children: [
       {path: 'used-offer-wrapper', component: UsedOfferWrapperComponentComponent},
       {path: 'new-offer-wrapper', component: NewOfferWrapperComponentComponent}
-      ]}
+      ]},
 
   {path: 'login', component: LogInFormComponentComponent},
   {path: 'register', component: RegisterFormComponentComponent},

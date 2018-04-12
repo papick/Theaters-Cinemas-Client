@@ -1,0 +1,22 @@
+
+<router-outlet>
+  <table style="width:100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Description</th>
+        <th>Repertory</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let institution of institutions">
+        <td><a [routerLink]="institution.name">{{institution?.name}}</a></td>
+        <td>{{institution?.address}}</td>
+        <td>{{institution?.description}}</td>
+        <td>
+          <a routerLink="{{institution.name}}/repertory">Look</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
