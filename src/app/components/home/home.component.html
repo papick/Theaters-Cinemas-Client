@@ -30,15 +30,15 @@
     <input type="text" *ngIf="editMode" name="brTelefona" [(ngModel)]="loggedUser.brTelefona">
     <p *ngIf="!editMode">{{loggedUser.brTelefona}}</p>
 
-    <button *ngIf="!editMode" (click)="edit()" class="btn btn-primary" style="margin-top: 2%">
+    <button *ngIf="!editMode" (click)="edit()" class="button" style="margin-top: 2%">
       Edit
     </button>
 
-    <button *ngIf="editMode" type="button" (click)="back()" class="btn btn-primary" style="margin-top: 2%">
+    <button *ngIf="editMode" type="button" (click)="back()" class="button" style="margin-top: 2%">
       Back
     </button>
 
-    <button *ngIf="editMode" type="submit" class="btn btn-primary" style="margin-top: 2%">
+    <button *ngIf="editMode" type="submit" class="button" style="margin-top: 2%">
       Save
     </button>
 
