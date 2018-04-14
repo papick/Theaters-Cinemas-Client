@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {AccountService} from '../../services/account.service';
+import {User} from '../../model/user.model';
 
 @Component({
   selector: 'app-requests',
@@ -18,11 +19,11 @@ export class RequestsComponent implements OnInit {
     this.userService.getMyRequests(AccountService.getLoggedUser()).subscribe(reqs => this.requests = reqs);
   }
 
-  confirm() {
-
+  confirm(user: User) {
+    this.userService.confirmFriend(user, AccountService.getLoggedUser());
   }
 
-  decline() {
-
+  decline(user: User) {
+    this.userService.declineFriend(user, AccountService.getLoggedUser());
   }
 }

@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 export class UserService {
 
   constructor(private http: HttpClient) {
+    this.http = http;
   }
 
 
@@ -18,6 +19,14 @@ export class UserService {
 
   getMyRequests(user) {
     return this.http.post('/api/user/getMyRequest', user);
+  }
+
+  confirmFriend(user, sender) {
+    this.http.post('/api/user/friendship/changeStatusInAccept', {'begin': sender, 'end': user});
+  }
+
+  declineFriend(user, sender) {
+    this.http.post('/api/user/friendship/changeStatusInIgnore', {'begin': sender, 'end': user});
   }
 
 }
