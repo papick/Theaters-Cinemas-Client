@@ -46,8 +46,16 @@ export class HomeComponent implements OnInit {
   }
 
   delete(friendship, id) {
+    let i = 0;
+    for (const f of this.loggedUser.friendList) {
+      i++;
+      if (f.id === friendship.id) {
+        this.loggedUser.friendList.splice(i - 1, 1);
+        break;
+      }
+    }
     this.accountService.deleteFriend(friendship).subscribe();
-    document.getElementById(id);
+    document.getElementById(id).hidden = true;
   }
 
 }
