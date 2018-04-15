@@ -29,7 +29,7 @@ export const router: Routes = [
   // {path: 'repertory', component: RepertoryComponent}
   {path: 'fan-zone-component', component: FanZoneComponentComponent ,
     children: [
-      {path: 'used-offer-wrapper/:id', component: UsedOfferWrapperComponentComponent},
+      {path: 'used-offer-wrapper', component: UsedOfferWrapperComponentComponent},
       {path: 'new-offer-wrapper', component: NewOfferWrapperComponentComponent}
       ]},
 

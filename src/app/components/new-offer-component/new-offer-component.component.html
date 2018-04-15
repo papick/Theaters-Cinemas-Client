@@ -16,7 +16,7 @@
 
   <br>
   <br>
-  <button type="submit">
+  <button type="submit" >
     add
   </button>
 
@@ -46,8 +46,9 @@
 
           <p-dialog header="Edit item" [(visible)]="displayEdit">
             <p>Name:</p>
-            <input type="text">
+            <input type="text" value={{newOffer.name}}>
             <p>Description:</p>
+
             <input type="text">
             <p>Date:</p>
             <input type="date">

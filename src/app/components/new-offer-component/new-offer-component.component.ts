@@ -18,21 +18,28 @@ export class NewOfferComponentComponent implements OnInit {
   constructor(private newOfferService: NewOfferService) { }
 
   ngOnInit() {
+    this.getOffers();
+  }
+  getOffers(){
     this.newOfferService.getNewOffer().subscribe(newOffers => this.newOffers = newOffers);
   }
   addItem(item) {
     this.newOfferService.addOffer(item.value).subscribe((ok) =>
-      this.newOfferService.getNewOffer().subscribe(newOffers => this.newOffers = newOffers));
+      this.getOffers());
   }
   deleteItem(id: Number) {
-    this.newOfferService.deleteOffer(id).subscribe((ok) => console.log(ok));
+    console.log(id);
+    this.newOfferService.deleteOffer(id).subscribe((ok) =>
+    this.getOffers());
+  }
+  updateItem(id: Number, item ) {
+    this.newOfferService.updateOffer(id, item.value).subscribe((ok) =>
+      this.getOffers());
   }
 
   showAddDialog() {
-    console.log('pera');
     this.displayAdd = true;
   }
-
   showEditDialog() {
     this.displayEdit = true;
   }
