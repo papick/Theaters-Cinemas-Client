@@ -1,8 +1,8 @@
 <br><br><br>
 
-<input type="search" [(ngModel)]="searchString">
+<input class="p" type="search" [(ngModel)]="searchString">
 
 <button class="button" type="submit" (click)="search()">Search</button>
 
-<p *ngFor="let p of people" >{{p.id + " " + p.ime + " " + p.prezime}}<a (click)="addFriend(p)" style="cursor: pointer">  +</a></p>
+<p class="p" *ngFor="let p of people" id="{{p.id}}">{{p.ime + " " + p.prezime}}      <a class="button" (click)="addFriend(p,p.id)" style="cursor: pointer">ADD</a></p>
 

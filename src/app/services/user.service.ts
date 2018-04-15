@@ -22,11 +22,16 @@ export class UserService {
   }
 
   confirmFriend(user, sender) {
-    this.http.post('/api/user/friendship/changeStatusInAccept', {'begin': sender, 'end': user});
+    return this.http.post('/api/user/friendship/changeStatusInAccept', {'begin': sender, 'end': user});
   }
 
   declineFriend(user, sender) {
-    this.http.post('/api/user/friendship/changeStatusInIgnore', {'begin': sender, 'end': user});
+    console.log(user + ' , ' + sender);
+    return this.http.post('/api/user/friendship/changeStatusInIgnore', {'begin': sender, 'end': user});
+  }
+
+  getMyFriends(user) {
+    return this.http.get('/api/user/getMyFriends/' + user.id);
   }
 
 }

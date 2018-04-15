@@ -6,29 +6,29 @@
 
 <div *ngIf="loggedUser != null" id="div_profile">
   <form name="registerForm" #registerForm="ngForm" (ngSubmit)="save()">
-    <h3>Email:</h3>
-    <input type="text" *ngIf="editMode" name="email" [(ngModel)]="loggedUser.email">
-    <p *ngIf="!editMode"> {{loggedUser.email}}</p>
+    <h3 class="p">Email:</h3>
+    <input class="p" type="text" *ngIf="editMode" name="email" [(ngModel)]="loggedUser.email">
+    <p class="p" *ngIf="!editMode"> {{loggedUser.email}}</p>
 
-    <h3>Password:</h3>
-    <input type="text" *ngIf="editMode" name="password" [(ngModel)]="loggedUser.password">
-    <p *ngIf="!editMode">{{loggedUser.password}}</p>
+    <h3 class="p">Password:</h3>
+    <input class="p" type="text" *ngIf="editMode" name="password" [(ngModel)]="loggedUser.password">
+    <p class="p" *ngIf="!editMode">{{loggedUser.password}}</p>
 
-    <h3>First name:</h3>
-    <input type="text" *ngIf="editMode" name="ime" [(ngModel)]="loggedUser.ime">
-    <p *ngIf="!editMode">{{loggedUser.ime}}</p>
+    <h3 class="p">First name:</h3>
+    <input class="p" type="text" *ngIf="editMode" name="ime" [(ngModel)]="loggedUser.ime">
+    <p class="p" *ngIf="!editMode">{{loggedUser.ime}}</p>
 
-    <h3>Last name:</h3>
-    <input type="text" *ngIf="editMode" name="prezime" [(ngModel)]="loggedUser.prezime">
-    <p *ngIf="!editMode">{{loggedUser.prezime}}</p>
+    <h3 class="p">Last name:</h3>
+    <input class="p" type="text" *ngIf="editMode" name="prezime" [(ngModel)]="loggedUser.prezime">
+    <p class="p" *ngIf="!editMode">{{loggedUser.prezime}}</p>
 
-    <h3>City:</h3>
-    <input type="text" *ngIf="editMode" name="grad" [(ngModel)]="loggedUser.grad">
-    <p *ngIf="!editMode">{{loggedUser.grad}}</p>
+    <h3 class="p">City:</h3>
+    <input class="p" type="text" *ngIf="editMode" name="grad" [(ngModel)]="loggedUser.grad">
+    <p class="p" *ngIf="!editMode">{{loggedUser.grad}}</p>
 
-    <h3>Phone number:</h3>
-    <input type="text" *ngIf="editMode" name="brTelefona" [(ngModel)]="loggedUser.brTelefona">
-    <p *ngIf="!editMode">{{loggedUser.brTelefona}}</p>
+    <h3 class="p">Phone number:</h3>
+    <input class="p" type="text" *ngIf="editMode" name="brTelefona" [(ngModel)]="loggedUser.brTelefona">
+    <p class="p" *ngIf="!editMode">{{loggedUser.brTelefona}}</p>
 
     <button *ngIf="!editMode" (click)="edit()" class="button" style="margin-top: 2%">
       Edit
@@ -46,5 +46,8 @@
 </div>
 
 <div *ngIf="loggedUser != null && loggedUser.uloga === 'GUEST'" id="div_friends">
-  <p *ngFor="let f of loggedUser.friendList" >{{f.id + " " + f.user_one.ime + " " + f.user_one.prezime}} <a id="{{f.id}}" (click)="delete(f)">X</a></p>
+  <p class="pP"><b>My friends:</b></p>
+  <p class="p" *ngFor="let f of loggedUser.friendList" id="{{f.id}}">{{ f.ime + " " + f.prezime}}       </p>
 </div>
+
+<!--<a class="button" style="cursor: pointer" (click)="delete(f,f.id)">DELETE</a>-->

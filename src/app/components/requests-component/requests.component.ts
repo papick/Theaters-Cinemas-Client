@@ -19,11 +19,13 @@ export class RequestsComponent implements OnInit {
     this.userService.getMyRequests(AccountService.getLoggedUser()).subscribe(reqs => this.requests = reqs);
   }
 
-  confirm(user: User) {
-    this.userService.confirmFriend(user, AccountService.getLoggedUser());
+  confirm(user: User, id) {
+    this.userService.confirmFriend(user, AccountService.getLoggedUser()).subscribe();
+    document.getElementById(id).hidden = true;
   }
 
-  decline(user: User) {
-    this.userService.declineFriend(user, AccountService.getLoggedUser());
+  decline(user: User, id) {
+    this.userService.declineFriend(user, AccountService.getLoggedUser()).subscribe();
+    document.getElementById(id).hidden = true;
   }
 }

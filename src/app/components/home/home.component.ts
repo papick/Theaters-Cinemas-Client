@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AccountService} from '../../services/account.service';
-import {Friendship} from '../../model/friendship.model';
-import {User} from '../../model/user.model';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -13,18 +12,18 @@ export class HomeComponent implements OnInit {
   private loggedUser;
   private temp;
 
-  constructor(private accountService: AccountService) {
+  constructor(private accountService: AccountService, private userService: UserService) {
     this.loggedUser = AccountService.getLoggedUser();
     this.temp = JSON.parse(JSON.stringify(this.loggedUser));
+    if (this.loggedUser !== null) {
+      this.userService.getMyFriends(this.loggedUser).subscribe(friendList => {
+        this.loggedUser.friendList = friendList;
+        console.log(friendList);
+      });
+    }
   }
 
   ngOnInit() {
-    this.loggedUser.friendList.push(new Friendship(1, new User(1, 'mail', '123', 'Pera', 'Peric'),
-      this.loggedUser, new User(1, 'mail', '123', 'Pera', 'Peric'), 1));
-    this.loggedUser.friendList.push(new Friendship(2, new User(1, 'mail', '123', 'Jova', 'JOvic'),
-      this.loggedUser, new User(1, 'mail', '123', 'Jova', 'JOvic'), 1));
-    this.loggedUser.friendList.push(new Friendship(3, new User(1, 'mail', '123', 'MIka', 'MIkic'),
-      this.loggedUser, new User(1, 'mail', '123', 'MIka', 'MIkic'), 1));
   }
 
   edit() {
@@ -46,16 +45,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  delete(friendship) {
-    let i = 0;
-    for (const f of this.loggedUser.friendList) {
-      i++;
-      if (f.id === friendship.id) {
-        this.loggedUser.friendList.splice(i - 1 , 1);
-        break;
-      }
-    }
+  delete(friendship, id) {
     this.accountService.deleteFriend(friendship).subscribe();
+    document.getElementById(id);
   }
 
 }

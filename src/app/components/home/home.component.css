@@ -27,3 +27,12 @@ div{
   display: inline-block;
   font-size: 16px;
 }
+
+.p {
+  color: cadetblue;
+}
+
+.pP{
+  font-size: 20px;
+  color: cadetblue;
+}

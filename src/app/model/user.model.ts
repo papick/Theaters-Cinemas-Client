@@ -9,6 +9,7 @@ export class User {
               public grad?: string,
               public brTelefona?: number,
               public friendList?: Array<Friendship>) {
+    this.friendList = new Array<Friendship>();
   }
 
 }

@@ -26,9 +26,10 @@ export class PeopleComponent implements OnInit {
     });
   }
 
-  addFriend(user: User) {
+  addFriend(user: User, id) {
     console.log(AccountService.getLoggedUser());
     this.userService.addFriend(user, AccountService.getLoggedUser()).subscribe();
+    document.getElementById(id).hidden = true;
   }
 
 }
