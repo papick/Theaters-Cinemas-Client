@@ -1,22 +1,32 @@
+<button class="addButton" (click)="showDialog()">
+  add new cinema
+</button>
 
-<router-outlet>
-  <table style="width:100%">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Description</th>
-        <th>Repertory</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let institution of institutions">
-        <td><a [routerLink]="institution.name">{{institution?.name}}</a></td>
-        <td>{{institution?.address}}</td>
-        <td>{{institution?.description}}</td>
-        <td>
-          <a routerLink="{{institution.name}}/repertory">Look</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<p-dialog header="Add item" [(visible)]="displayAdd">
+  <form #offerForm="ngForm" (ngSubmit)="addItem(offerForm)">
+  <p>Name:</p>
+  <input type="text" name="name" [(ngModel)]="name">
+  <p>Description:</p>
+  <input type="text" name="description" [(ngModel)]="description">
+  <p>Address:</p>
+  <input type="text" name="address" [(ngModel)]="address">
+
+
+
+  <br>
+  <br>
+  <button type="submit" (click)="showDialog()" >
+    add
+  </button>
+
+  </form>
+</p-dialog>
+<p-dataGrid [value]="institutions" [paginator]="true" [rows]="9">
+    <ng-template let-institution pTemplate="item">
+        <div class="ui-g-12 ui-md-3">
+          <a [routerLink]="institution.name">{{institution?.name}}</a>
+          <p>{{institution?.address}}</p>
+          <p>{{institution?.description}}</p>
+        </div>
+    </ng-template>
+</p-dataGrid>

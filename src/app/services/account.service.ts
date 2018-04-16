@@ -14,11 +14,11 @@ export class AccountService {
   }
 
   register(user: User) {
-    return this.http.post('/api/user/registrate', user);
+    return this.http.post('http://localhost:8080/api/user/registrate', user);
   }
 
   login(loginObject: any) {
-    return this.http.post('/api/user/login', loginObject);
+    return this.http.post('http://localhost:8080/api/user/login', loginObject);
   }
 
   updateUser(loginObject: any) {

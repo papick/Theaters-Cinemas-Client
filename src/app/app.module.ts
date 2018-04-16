@@ -27,12 +27,12 @@ import { UsedOfferWrapperComponentComponent } from './components/used-offer-wrap
 import {UsedOfferService} from './components/used-offer-component/usedOfferService';
 
 import {DialogModule} from 'primeng/dialog';
-
+import {DataGridModule} from 'primeng/datagrid';
 
 import {HttpModule} from '@angular/http';
 
 import {InstitutionService} from './services/institution.service';
-import { CinemaTheaterProfileComponent } from './components/cinema-theater-profile/cinema-theater-profile.component';
+import {CinemaTheaterProfileComponent } from './components/cinema-theater-profile/cinema-theater-profile.component';
 import {PeopleComponent} from './components/people-component/people.component';
 import {UserService} from './services/user.service';
 import { RequestsComponent } from './components/requests-component/requests.component';
@@ -68,8 +68,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HttpClientModule,
     HttpModule,
     DialogModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    DataGridModule
 
   ],
   providers: [AccountService , NewOfferService, UsedOfferService, InstitutionService , UserService],
