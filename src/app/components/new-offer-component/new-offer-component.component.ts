@@ -13,14 +13,14 @@ export class NewOfferComponentComponent implements OnInit {
   newOffers: any;
   displayAdd = false;
   displayEdit = false;
-  item;
+  newOfferEdit: NewOffer;
+  constructor(private newOfferService: NewOfferService) {}
 
-  constructor(private newOfferService: NewOfferService) { }
 
   ngOnInit() {
     this.getOffers();
   }
-  getOffers(){
+  getOffers() {
     this.newOfferService.getNewOffer().subscribe(newOffers => this.newOffers = newOffers);
   }
   addItem(item) {
@@ -40,8 +40,10 @@ export class NewOfferComponentComponent implements OnInit {
   showAddDialog() {
     this.displayAdd = true;
   }
-  showEditDialog() {
+  showEditDialog(offer) {
     this.displayEdit = true;
+
+    this.newOfferEdit = offer;
   }
 
 }

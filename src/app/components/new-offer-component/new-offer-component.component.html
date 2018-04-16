@@ -9,11 +9,6 @@
   <p>Description:</p>
   <input type="text" name="description" [(ngModel)]="description">
 
-    <p>Date:</p>
-    <input type="text" name="date" [(ngModel)]="date">
-
-
-
   <br>
   <br>
   <button type="submit" >
@@ -22,6 +17,26 @@
 
   </form>
 </p-dialog>
+
+
+<p-dialog header="Edit item" [(visible)]="displayEdit">
+
+  <p>Name:</p>
+
+  <input type="text" >
+  <p>Description:</p>
+
+  <input type="text">
+
+
+  <br>
+  <br>
+  <button>
+    save
+  </button>
+
+</p-dialog>
+
 
 <p-dataList [value]="newOffers" [paginator]="true" [rows]="5" class="lista">
 
@@ -44,22 +59,9 @@
           <div class="ui-g-2 ui-sm-6">Date: </div>
           <div class="ui-g-10 ui-sm-6">{{newOffer.date}}</div>
 
-          <p-dialog header="Edit item" [(visible)]="displayEdit">
-            <p>Name:</p>
-            <input type="text" value={{newOffer.name}}>
-            <p>Description:</p>
 
-            <input type="text">
-            <p>Date:</p>
-            <input type="date">
-            <br>
-            <br>
-            <button>
-              save
-            </button>
-          </p-dialog>
 
-          <button (click)="showEditDialog()">
+          <button (click)="showEditDialog(newOffer)" >
             Edit
           </button>
 
@@ -75,7 +77,12 @@
     </div>
     <hr>
   </ng-template>
+
+
+
 </p-dataList>
+
+
 
 
 

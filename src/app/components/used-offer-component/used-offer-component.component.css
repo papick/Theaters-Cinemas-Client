@@ -2,3 +2,17 @@ img{
   height: 90%;
   width: 30%;
 }
+.addButton{
+
+  position: relative;
+  top:5px;
+  width: 30%;
+  height: 30px;
+  left: 35%;
+}
+.lista{
+  position: relative;
+  top:10px;
+
+
+}
