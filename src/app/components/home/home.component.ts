@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  delete(friendship, id) {
+  delete(friendship, id, idLogged) {
     let i = 0;
     for (const f of this.loggedUser.friendList) {
       i++;
@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
         break;
       }
     }
-    this.accountService.deleteFriend(friendship).subscribe();
+    this.accountService.deleteFriend(friendship, idLogged).subscribe();
     document.getElementById(id).hidden = true;
   }
 
