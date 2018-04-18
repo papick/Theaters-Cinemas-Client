@@ -9,7 +9,7 @@ export class AccountService {
   constructor(private http: HttpClient) {
   }
 
-  getLoggedUser() {
+  static getLoggedUser() {
     return JSON.parse(localStorage.getItem('loggedUser'));
   }
 
@@ -30,7 +30,7 @@ export class AccountService {
   }
 
   deleteFriend(friendship: Friendship) {
-    return this.http.delete('http://localhost:8080/api/user/removeFriend/' + friendship.id);
+    return this.http.delete('/api/user/removeFriend/' + friendship.id);
   }
 
 }

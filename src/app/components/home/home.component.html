@@ -47,7 +47,8 @@
 
 <div *ngIf="loggedUser !== null && loggedUser.uloga === 'GUEST'" id="div_friends">
   <p class="pP"><b>My friends:</b></p>
-  <p class="p" *ngFor="let f of loggedUser.friendList" id="{{f.id}}">{{ f.ime + " " + f.prezime}}       <a class="button" style="cursor: pointer" (click)="delete(f,f.id)">DELETE</a></p>
-</div>
+  <p class="p" *ngFor="let f of loggedUser.friendList" id="{{f.id}}">{{ f.ime + " " + f.prezime}}
+    <a class="button" style="cursor: pointer" (click)="delete(f,f.id,loggedUser.id)">DELETE</a>
+  </p>
 
-<!---->
+</div>
