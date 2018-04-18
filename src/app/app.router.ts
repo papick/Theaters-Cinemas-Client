@@ -18,6 +18,7 @@ import {CinemaTheaterProfileComponent} from './components/cinema-theater-profile
 
  import {PeopleComponent} from './components/people-component/people.component';
  import {RequestsComponent} from './components/requests-component/requests.component';
+import {AdminFanZoneNotifyWrapperComponent} from './components/admin-fan-zone-notify-wrapper/admin-fan-zone-notify-wrapper.component';
 
 export const router: Routes = [
 
@@ -30,7 +31,8 @@ export const router: Routes = [
   {path: 'fan-zone-component', component: FanZoneComponentComponent ,
     children: [
       {path: 'used-offer-wrapper', component: UsedOfferWrapperComponentComponent},
-      {path: 'new-offer-wrapper', component: NewOfferWrapperComponentComponent}
+      {path: 'new-offer-wrapper', component: NewOfferWrapperComponentComponent},
+      {path: 'admin-fan-zone-notify-wrapper', component: AdminFanZoneNotifyWrapperComponent}
       ]},
 
   {path: 'login', component: LogInFormComponentComponent},

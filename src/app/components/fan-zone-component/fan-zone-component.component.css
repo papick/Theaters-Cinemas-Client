@@ -32,6 +32,9 @@
 
 
 }
+#notify{
+  width:100px;
+}
 a{
   text-decoration: none;
 }

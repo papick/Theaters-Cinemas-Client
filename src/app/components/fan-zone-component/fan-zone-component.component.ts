@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AccountService} from '../../services/account.service';
 
 @Component({
   selector: 'app-fan-zone-component',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FanZoneComponentComponent implements OnInit {
 
-  constructor() { }
+  logedUser: any;
+
+  constructor(private  accountService: AccountService) { }
 
   ngOnInit() {
+    this.logedUser = this.accountService.getLoggedUser();
   }
+
+
+  isFanzoneAdmin() {
+
+    if (this.logedUser != null && this.logedUser.uloga === 'FANZONEADMIN') {
+
+      return true;
+    }
+  }
+
 
 }

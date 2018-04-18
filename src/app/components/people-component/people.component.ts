@@ -27,8 +27,8 @@ export class PeopleComponent implements OnInit {
   }
 
   addFriend(user: User, id) {
-    console.log(AccountService.getLoggedUser());
-    this.userService.addFriend(user, AccountService.getLoggedUser()).subscribe();
+    console.log(this.accService.getLoggedUser());
+    this.userService.addFriend(user, this.accService.getLoggedUser()).subscribe();
     document.getElementById(id).hidden = true;
   }
 

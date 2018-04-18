@@ -1,4 +1,4 @@
-<button class="addButton" (click)="showAddDialog()">
+<button class="addButton" (click)="showAddDialog()" *ngIf="isFanzoneAdmin()">
   add new item
 </button>
 
@@ -61,14 +61,18 @@
 
 
 
-          <button (click)="showEditDialog(newOffer)" >
+          <button (click)="showEditDialog(newOffer)" *ngIf="isFanzoneAdmin()" >
             Edit
           </button>
 
 
 
-          <button (click)="deleteItem(newOffer.id)">
+          <button (click)="deleteItem(newOffer.id)" *ngIf="isFanzoneAdmin()">
             Delete
+          </button>
+
+          <button  *ngIf="isGuest(newOffer.customer_id)">
+            Buy
           </button>
 
 

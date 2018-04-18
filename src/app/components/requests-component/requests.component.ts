@@ -16,16 +16,16 @@ export class RequestsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getMyRequests(AccountService.getLoggedUser()).subscribe(reqs => this.requests = reqs);
+    this.userService.getMyRequests(this.accService.getLoggedUser()).subscribe(reqs => this.requests = reqs);
   }
 
   confirm(user: User, id) {
-    this.userService.confirmFriend(user, AccountService.getLoggedUser()).subscribe();
+    this.userService.confirmFriend(user, this.accService.getLoggedUser()).subscribe();
     document.getElementById(id).hidden = true;
   }
 
   decline(user: User, id) {
-    this.userService.declineFriend(user, AccountService.getLoggedUser()).subscribe();
+    this.userService.declineFriend(user, this.accService.getLoggedUser()).subscribe();
     document.getElementById(id).hidden = true;
   }
 }

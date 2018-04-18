@@ -24,7 +24,7 @@ import { UsedOfferComponentComponent } from './components/used-offer-component/u
 import {NewOfferService} from './components/new-offer-component/newOfferService';
 import { NewOfferWrapperComponentComponent } from './components/new-offer-wrapper-component/new-offer-wrapper-component.component';
 import { UsedOfferWrapperComponentComponent } from './components/used-offer-wrapper-component/used-offer-wrapper-component.component';
-import {UsedOfferService} from './components/used-offer-component/usedOfferService';
+import {UsedOfferService} from './services/usedOfferService';
 
 import {DialogModule} from 'primeng/dialog';
 import {DataGridModule} from 'primeng/datagrid';
@@ -37,6 +37,9 @@ import {PeopleComponent} from './components/people-component/people.component';
 import {UserService} from './services/user.service';
 import { RequestsComponent } from './components/requests-component/requests.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CalendarModule} from 'primeng/primeng';
+import { AdminFanZoneNotifyComponent } from './components/admin-fan-zone-notify/admin-fan-zone-notify.component';
+import { AdminFanZoneNotifyWrapperComponent } from './components/admin-fan-zone-notify-wrapper/admin-fan-zone-notify-wrapper.component';
 
 
 @NgModule({
@@ -57,6 +60,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     CinemaTheaterProfileComponent,
     PeopleComponent,
     RequestsComponent,
+    AdminFanZoneNotifyComponent,
+    AdminFanZoneNotifyWrapperComponent,
 
 
   ],
@@ -69,10 +74,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HttpModule,
     DialogModule,
     BrowserAnimationsModule,
-    DataGridModule
+    DataGridModule,
+    CalendarModule
 
   ],
-  providers: [AccountService , NewOfferService, UsedOfferService, InstitutionService , UserService],
+  providers: [AccountService , NewOfferService,
+    UsedOfferService, InstitutionService , UserService],
 
   bootstrap: [AppComponent]
 })

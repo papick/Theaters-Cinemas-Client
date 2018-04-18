@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {NewOfferService} from '../new-offer-component/newOfferService';
-import {UsedOfferService} from './usedOfferService';
+import {UsedOfferService} from '../../services/usedOfferService';
+import {AccountService} from '../../services/account.service';
+import {User} from '../../model/user.model';
+import {UsedOffer} from './usedOfferInterface';
 
 @Component({
   selector: 'app-used-offer-component',
@@ -12,15 +15,20 @@ export class UsedOfferComponentComponent implements OnInit {
   usedOffers: any;
   displayAdd = false;
   displayEdit= false;
-
-  constructor(private usedOfferService: UsedOfferService) { }
+  loggedUser: any;
+  constructor(private usedOfferService: UsedOfferService, private  accService: AccountService) { }
 
   ngOnInit() {
     this.getOffers();
+
+    this.loggedUser = this.accService.getLoggedUser();
   }
 
   getOffers() {
-    this.usedOfferService.getUsedOffer().subscribe(usedOffers => this.usedOffers = usedOffers);
+
+    this.usedOfferService.getUsedOffer().subscribe(usedOffers =>  this.usedOffers = usedOffers
+    );
+
   }
   addUsedItem(item) {
     this.usedOfferService.addUsedOffer(item.value).subscribe((ok) =>
@@ -38,10 +46,38 @@ export class UsedOfferComponentComponent implements OnInit {
 
   showAddDialog() {
     this.displayAdd = true;
+    console.log('OVO JE ITEM: ' + JSON.stringify(this.usedOffers[3]));
   }
   showEditDialog() {
     this.displayEdit = true;
   }
 
+  isFanzoneAdminOrLoggedUser(usedOffer) {
+
+    if (this.loggedUser != null
+      && ((this.loggedUser.uloga === 'GUEST' && this.loggedUser.id === usedOffer.customer.id)
+        || this.loggedUser.uloga === 'FANZONEADMIN')) {
+
+      return true;
+    }
+  }
+
+  isGuest() {
+    if (this.loggedUser != null && this.loggedUser.uloga === 'GUEST'  ) {
+      return true;
+    }
+  }
+  isOtherGuest(usedOffer) {
+    if (this.loggedUser != null && this.loggedUser.uloga === 'GUEST' && this.loggedUser.id !== usedOffer.customer.id) {
+      return true;
+    }
+  }
+  isLoggedUser(usedOffer) {
+    if (this.loggedUser != null
+      && this.loggedUser.uloga === 'GUEST'
+      && this.loggedUser.id === usedOffer.customer.id) {
+      return true;
+    }
+  }
 
 }

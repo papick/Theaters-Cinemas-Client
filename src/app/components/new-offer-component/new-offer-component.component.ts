@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NewOfferService} from './newOfferService';
 import {NewOffer} from './newOfferInterface';
+import {AccountService} from '../../services/account.service';
 
 @Component({
   selector: 'app-new-offer-component',
@@ -14,13 +15,15 @@ export class NewOfferComponentComponent implements OnInit {
   displayAdd = false;
   displayEdit = false;
   newOfferEdit: NewOffer;
-  constructor(private newOfferService: NewOfferService) {}
+  logedUser: any;
+  constructor(private newOfferService: NewOfferService, private  acountService: AccountService ) {}
 
 
   ngOnInit() {
     this.getOffers();
+    this.logedUser = this.acountService.getLoggedUser();
   }
-  getOffers() {
+    getOffers() {
     this.newOfferService.getNewOffer().subscribe(newOffers => this.newOffers = newOffers);
   }
   addItem(item) {
@@ -44,6 +47,18 @@ export class NewOfferComponentComponent implements OnInit {
     this.displayEdit = true;
 
     this.newOfferEdit = offer;
+  }
+  isFanzoneAdmin() {
+
+    if (this.logedUser != null && this.logedUser.uloga === 'FANZONEADMIN') {
+
+      return true;
+    }
+  }
+  isGuest() {
+    if (this.logedUser != null && this.logedUser.uloga === 'GUEST') {
+      return true;
+    }
   }
 
 }

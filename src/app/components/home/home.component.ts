@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   private temp;
 
   constructor(private accountService: AccountService, private userService: UserService) {
-    this.loggedUser = AccountService.getLoggedUser();
+    this.loggedUser = accountService.getLoggedUser();
     this.temp = JSON.parse(JSON.stringify(this.loggedUser));
     if (this.loggedUser !== null) {
       this.userService.getMyFriends(this.loggedUser).subscribe(friendList => {
@@ -40,9 +40,16 @@ export class HomeComponent implements OnInit {
   save() {
     this.editMode = false;
     console.log(this.loggedUser);
-    this.accountService.updateUser(this.loggedUser).subscribe(user => {
-      this.loggedUser = user;
-    });
+    if(this.loggedUser.uloga === 'GUEST'){
+      this.accountService.updateUser(this.loggedUser).subscribe(user => {
+        this.loggedUser = user;
+      });
+      }else {
+      this.accountService.updateAllUser(this.loggedUser.id, this.loggedUser).subscribe(user => {
+        this.loggedUser = user;
+      });
+    }
+
   }
 
   delete(friendship, id) {

@@ -1,4 +1,4 @@
-<button class="addButton" (click)="showAddDialog()">
+<button class="addButton" (click)="showAddDialog()" *ngIf="isGuest()">
   add used item
 </button>
 
@@ -10,7 +10,8 @@
     <input type="text" name="description" [(ngModel)]="description">
 
     <p>Date:</p>
-    <input type="text" name="date" [(ngModel)]="date">
+    <p-calendar [(ngModel)]="date" name="date" [inline]="true"></p-calendar>
+
 
 
 
@@ -21,7 +22,25 @@
     </button>
 
   </form>
+
 </p-dialog>
+
+
+<p-dialog header="Edit item" [(visible)]="displayEdit">
+  <p>Name:</p>
+  <input type="text">
+  <p>Description:</p>
+
+  <input type="text">
+  <p>Date:</p>
+  <input type="date">
+  <br>
+  <br>
+  <button>
+    save
+  </button>
+</p-dialog>
+
 
 <p-dataList [value]="usedOffers" [paginator]="true" [rows]="5" class="lista">
 
@@ -44,29 +63,20 @@
           <div class="ui-g-2 ui-sm-6">Date: </div>
           <div class="ui-g-10 ui-sm-6">{{usedOffer.date}}</div>
 
-          <p-dialog header="Edit item" [(visible)]="displayEdit">
-            <p>Name:</p>
-            <input type="text" value={{usedOffer.name}}>
-            <p>Description:</p>
 
-            <input type="text">
-            <p>Date:</p>
-            <input type="date">
-            <br>
-            <br>
-            <button>
-              save
-            </button>
-          </p-dialog>
 
-          <button (click)="showEditDialog()">
+          <button (click)="showEditDialog()" *ngIf="isLoggedUser(usedOffer)">
             Edit
           </button>
 
 
 
-          <button (click)="deleteUsedItem(usedOffer.id)">
+          <button (click)="deleteUsedItem(usedOffer.id)" *ngIf="isFanzoneAdminOrLoggedUser(usedOffer)">
             Delete
+          </button>
+
+          <button *ngIf="isOtherGuest(usedOffer)">
+            Buy
           </button>
 
 

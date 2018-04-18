@@ -15,6 +15,12 @@
     </div>
     </a>
 
+    <a [routerLink]="['admin-fan-zone-notify-wrapper']" *ngIf="isFanzoneAdmin()">
+      <div class="buttons" id="notify" >
+        notification
+      </div>
+    </a>
+
   </div>
   <div class="main">
     <router-outlet></router-outlet>

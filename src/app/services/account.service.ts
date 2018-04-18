@@ -9,7 +9,7 @@ export class AccountService {
   constructor(private http: HttpClient) {
   }
 
-  static getLoggedUser() {
+  getLoggedUser() {
     return JSON.parse(localStorage.getItem('loggedUser'));
   }
 
@@ -18,15 +18,19 @@ export class AccountService {
   }
 
   login(loginObject: any) {
-    return this.http.post('http://localhost:8080/api/user/login', loginObject);
+    return this.http.post('http://localhost:8080/api/allusers/login', loginObject);
   }
 
   updateUser(loginObject: any) {
-    return this.http.put('/api/user/updateUser', loginObject);
+    return this.http.put('http://localhost:8080/api/user/updateUser', loginObject);
+  }
+
+  updateAllUser(id: Number, loginObject: any) {
+    return this.http.put('http://localhost:8080/api/allusers/updateUser/' + id , loginObject);
   }
 
   deleteFriend(friendship: Friendship) {
-    return this.http.delete('/api/user/removeFriend/' + friendship.id);
+    return this.http.delete('http://localhost:8080/api/user/removeFriend/' + friendship.id);
   }
 
 }
