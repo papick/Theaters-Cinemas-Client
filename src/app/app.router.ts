@@ -38,11 +38,11 @@ export const router: Routes = [
   {path: 'login', component: LogInFormComponentComponent},
   {path: 'register', component: RegisterFormComponentComponent},
   {path: 'cinemas', component: CinemaTheaterComponentComponent},
-  {path: 'cinemas/:name', component: CinemaTheaterProfileComponent},
+  {path: 'cinemas/:id', component: CinemaTheaterProfileComponent},
   {path: 'theaters', component: CinemaTheaterComponentComponent},
-  {path: 'theaters/:name', component: CinemaTheaterProfileComponent},
-  {path: 'cinemas/:name/repertory', component: RepertoryComponent},
-  {path: 'theaters/:name/repertory', component: RepertoryComponent},
+  {path: 'theaters/:id', component: CinemaTheaterProfileComponent},
+  {path: 'cinemas/:id/repertory', component: RepertoryComponent},
+  {path: 'theaters/:id/repertory', component: RepertoryComponent},
   {path: 'people', component: PeopleComponent},
   {path: 'requests', component: RequestsComponent}
 

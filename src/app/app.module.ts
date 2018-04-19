@@ -40,7 +40,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CalendarModule} from 'primeng/primeng';
 import { AdminFanZoneNotifyComponent } from './components/admin-fan-zone-notify/admin-fan-zone-notify.component';
 import { AdminFanZoneNotifyWrapperComponent } from './components/admin-fan-zone-notify-wrapper/admin-fan-zone-notify-wrapper.component';
-
+import {ArtOfWorkService} from './services/artOfWork.service';
 
 @NgModule({
   declarations: [
@@ -79,7 +79,7 @@ import { AdminFanZoneNotifyWrapperComponent } from './components/admin-fan-zone-
 
   ],
   providers: [AccountService , NewOfferService,
-    UsedOfferService, InstitutionService , UserService],
+    UsedOfferService, InstitutionService , UserService, ArtOfWorkService],
 
   bootstrap: [AppComponent]
 })
