@@ -26,13 +26,14 @@ import { NewOfferWrapperComponentComponent } from './components/new-offer-wrappe
 import { UsedOfferWrapperComponentComponent } from './components/used-offer-wrapper-component/used-offer-wrapper-component.component';
 import {UsedOfferService} from './services/usedOfferService';
 
+
+
 import {DialogModule} from 'primeng/dialog';
 import {DataGridModule} from 'primeng/datagrid';
 
 import {HttpModule} from '@angular/http';
 
 import {InstitutionService} from './services/institution.service';
-import {CinemaTheaterProfileComponent } from './components/cinema-theater-profile/cinema-theater-profile.component';
 import {PeopleComponent} from './components/people-component/people.component';
 import {UserService} from './services/user.service';
 import { RequestsComponent } from './components/requests-component/requests.component';
@@ -57,7 +58,6 @@ import {ArtOfWorkService} from './services/artOfWork.service';
     UsedOfferComponentComponent,
     NewOfferWrapperComponentComponent,
     UsedOfferWrapperComponentComponent,
-    CinemaTheaterProfileComponent,
     PeopleComponent,
     RequestsComponent,
     AdminFanZoneNotifyComponent,

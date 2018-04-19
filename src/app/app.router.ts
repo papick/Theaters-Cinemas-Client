@@ -13,7 +13,6 @@ import {NewOfferWrapperComponentComponent} from './components/new-offer-wrapper-
 import {UsedOfferWrapperComponentComponent} from './components/used-offer-wrapper-component/used-offer-wrapper-component.component';
 
 
-import {CinemaTheaterProfileComponent} from './components/cinema-theater-profile/cinema-theater-profile.component';
 
 
  import {PeopleComponent} from './components/people-component/people.component';
@@ -38,11 +37,10 @@ export const router: Routes = [
   {path: 'login', component: LogInFormComponentComponent},
   {path: 'register', component: RegisterFormComponentComponent},
   {path: 'cinemas', component: CinemaTheaterComponentComponent},
-  {path: 'cinemas/:id', component: CinemaTheaterProfileComponent},
+  {path: 'cinemas/:cinemaId', component: RepertoryComponent},
   {path: 'theaters', component: CinemaTheaterComponentComponent},
-  {path: 'theaters/:id', component: CinemaTheaterProfileComponent},
-  {path: 'cinemas/:id/repertory', component: RepertoryComponent},
-  {path: 'theaters/:id/repertory', component: RepertoryComponent},
+  {path: 'cinemas/:cinemaId/repertory', component: RepertoryComponent},
+  {path: 'theaters/:theaterId/repertory', component: RepertoryComponent},
   {path: 'people', component: PeopleComponent},
   {path: 'requests', component: RequestsComponent}
 
