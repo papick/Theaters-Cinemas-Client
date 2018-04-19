@@ -21,12 +21,34 @@
 
   </form>
 </p-dialog>
+
+<p-dialog header="Edit item" [(visible)]="displayEdit">
+  <p>Name:</p>
+  <input type="text">
+  <p>Description:</p>
+
+  <input type="text">
+  <p>Date:</p>
+  <input type="date">
+  <br>
+  <br>
+  <button>
+    save
+  </button>
+</p-dialog>
+
 <p-dataGrid [value]="institutions" [paginator]="true" [rows]="9">
     <ng-template let-institution pTemplate="item">
         <div class="ui-g-12 ui-md-3">
           <a [routerLink]="institution.id + '/repertory'">{{institution?.name}}</a>
           <p>{{institution?.address}}</p>
           <p>{{institution?.description}}</p>
+          <button (click)="showEditDialog()" >
+            Edit
+          </button>
+          <button (click)="deleteMovie(institution.id)">
+            Delete
+          </button>
         </div>
     </ng-template>
 </p-dataGrid>

@@ -42,10 +42,10 @@ export class CinemaTheaterComponentComponent implements OnInit {
     this.getCinemas())
   }
 
-  deleteItem(id: Number) {
-    /*
-    this.institutionService.deleteOffer(id).subscribe((ok) =>
-    this.getOffers());*/
+  deleteMovie(id: Number) {
+
+    this.institutionService.deleteCinema(id).subscribe((ok) =>
+    this.getCinemas());
   }
   updateItem(id: Number, item ) {
     /*this.institutionService.updateOffer(id, item.value).subscribe((ok) =>

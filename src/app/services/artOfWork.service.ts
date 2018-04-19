@@ -13,7 +13,7 @@ export class ArtOfWorkService {
     return this.http.get('http://localhost:8080/api/cinemas/' + cinemaId + '/movies');
   }
   getShows(theaterId : Number) {
-    return this.http.get('http://localhost:8080/api/theaters' + theaterId + '/theaters');
+    return this.http.get('http://localhost:8080/api/theaters/' + theaterId + '/theaters');
   }
 
   addMovie(cinemaId : Number ,movie : ArtOfWork){
@@ -22,7 +22,7 @@ export class ArtOfWorkService {
   }
 
   deleteMovie(cinemaId : Number, id : Number){
-    return this.http.delete('http://localhost:8080/api/cinemas/' + cinemaId + '/movies'+id);
+    return this.http.delete('http://localhost:8080/api/cinemas/' + cinemaId + '/movies/'+id);
   }
 
 }

@@ -34,10 +34,10 @@ export class RepertoryComponent implements OnInit {
     this.getMovies())
   }
 
-  deleteItem(id: Number) {
-    /*
-    this.institutionService.deleteOffer(id).subscribe((ok) =>
-    this.getOffers());*/
+  deleteMovie(id: Number) {
+
+    this.artOfWorkService.deleteMovie(this.cinemaId ,id).subscribe((ok) =>
+    this.getMovies());
   }
   updateItem(id: Number, item ) {
     /*this.institutionService.updateOffer(id, item.value).subscribe((ok) =>
