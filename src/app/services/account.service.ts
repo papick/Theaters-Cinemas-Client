@@ -9,11 +9,12 @@ export class AccountService {
   constructor(private http: HttpClient) {
   }
 
-  static getLoggedUser() {
+  getLoggedUser() {
     return JSON.parse(localStorage.getItem('loggedUser'));
   }
 
   register(user: User) {
+    document.clear();
     return this.http.post('http://localhost:8080/api/user/registrate', user);
   }
 
@@ -29,8 +30,7 @@ export class AccountService {
     return this.http.put('http://localhost:8080/api/allusers/updateUser/' + id , loginObject);
   }
 
-  deleteFriend(friendship: Friendship) {
-    return this.http.delete('/api/user/removeFriend/' + friendship.id);
-  }
+  deleteFriend(friendship: Friendship, idLogged: number) {
+    return this.http.delete('/api/user/removeFriend?id1=' + friendship.id + '&id2=' + idLogged);
 
 }
