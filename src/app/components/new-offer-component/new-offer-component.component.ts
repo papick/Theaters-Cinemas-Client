@@ -15,6 +15,7 @@ export class NewOfferComponentComponent implements OnInit {
   displayAdd = false;
   displayEdit = false;
   newOfferEdit: NewOffer;
+  displayBuy = false;
   logedUser: any;
   constructor(private newOfferService: NewOfferService, private  acountService: AccountService ) {}
 
@@ -47,6 +48,10 @@ export class NewOfferComponentComponent implements OnInit {
     this.displayEdit = true;
 
     this.newOfferEdit = offer;
+  }
+
+  showBuyDialog() {
+    this.displayBuy = true;
   }
   isFanzoneAdmin() {
 

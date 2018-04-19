@@ -37,7 +37,7 @@ import {PeopleComponent} from './components/people-component/people.component';
 import {UserService} from './services/user.service';
 import { RequestsComponent } from './components/requests-component/requests.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CalendarModule} from 'primeng/primeng';
+import {CalendarModule, DropdownModule} from 'primeng/primeng';
 import { AdminFanZoneNotifyComponent } from './components/admin-fan-zone-notify/admin-fan-zone-notify.component';
 import { AdminFanZoneNotifyWrapperComponent } from './components/admin-fan-zone-notify-wrapper/admin-fan-zone-notify-wrapper.component';
 
@@ -75,7 +75,8 @@ import { AdminFanZoneNotifyWrapperComponent } from './components/admin-fan-zone-
     DialogModule,
     BrowserAnimationsModule,
     DataGridModule,
-    CalendarModule
+    CalendarModule,
+    DropdownModule
 
   ],
   providers: [AccountService , NewOfferService,

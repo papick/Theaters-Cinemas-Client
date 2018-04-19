@@ -19,6 +19,21 @@
 </p-dialog>
 
 
+<p-dialog header="Buy item" [(visible)]="displayBuy">
+  <form #offerForm="ngForm" >
+    <p>Reserve item:</p>
+
+    <p-dropdown ></p-dropdown>
+    <br>
+    <br>
+    <button type="submit" >
+      buy
+    </button>
+
+  </form>
+</p-dialog>
+
+
 <p-dialog header="Edit item" [(visible)]="displayEdit">
 
   <p>Name:</p>
@@ -71,7 +86,7 @@
             Delete
           </button>
 
-          <button  *ngIf="isGuest(newOffer.customer_id)">
+          <button  (click)="showBuyDialog()" *ngIf="isGuest(newOffer.customer_id)">
             Buy
           </button>
 
