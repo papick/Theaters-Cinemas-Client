@@ -8,7 +8,7 @@ export class ArtOfWork {
               public duration?: Number,
               public price?: Number,
               public type?: string,
-              public institution?: Number
+
               ) {}
 
 }

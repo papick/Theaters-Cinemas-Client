@@ -17,8 +17,15 @@ export class InstitutionService {
   }
 
   addCinema(institution:Institution){
-    institution.type = 'Cinema';
     return this.http.post('http://localhost:8080/api/cinemas', institution );
+  }
+
+  deleteCinema(id:Number){
+    return this.http.delete('http://localhost:8080/api/cinemas/'+id);
+  }
+
+  updateCinema(institution:Institution){
+    return this.http.patch('http://localhost:8080/api/cinemas/'+institution.id, institution );
   }
 
 }

@@ -2,33 +2,36 @@
   add new movie
 </button>
 
-<p-dialog header="Add item" [(visible)]="displayAdd">
-  <form #offerForm="ngForm" (ngSubmit)="addMovie(offerForm)">
-  <p>Name:</p>
-  <input type="text" name="name" [(ngModel)]="name">
-  <p>Description:</p>
-  <input type="text" name="description" [(ngModel)]="description">
-  <p>Director:</p>
-  <input type="text" name="director" [(ngModel)]="director">
-  <p>Duration:</p>
-  <input type="duration" name="duration" [(ngModel)]="duration">
-
-
-
-  <br>
-  <br>
-  <button type="submit" (click)="showDialog()" >
-    add
-  </button>
-
+<p-dialog header="Repertory" [(visible)]="displayForm">
+  <form  (ngSubmit)="save()">
+    <p>Name:</p>
+    <input type="text" name="name" [(ngModel)]="artOfWork.name" [ngModelOptions]="{standalone: true}">
+    <p>Description:</p>
+    <input type="text" name="description" [(ngModel)]="artOfWork.description" [ngModelOptions]="{standalone: true}">
+    <p>Director:</p>
+    <input type="text" name="director" [(ngModel)]="artOfWork.director" [ngModelOptions]="{standalone: true}">
+    <p>Duration:</p>
+    <input type="duration" name="duration" [(ngModel)]="artOfWork.duration" [ngModelOptions]="{standalone: true}">
+    <br>
+    <br>
+    <button type="submit" (click)="justShow()" >
+      save
+    </button>
   </form>
 </p-dialog>
+
 <p-dataGrid [value]="artOfWorks" [paginator]="true" [rows]="9">
     <ng-template let-artOfWork pTemplate="item">
         <div class="ui-g-12 ui-md-3">
           <a [routerLink]="artOfWork.name">{{artOfWork?.name}}</a>
           <p>{{artOfWork?.director}}</p>
           <p>{{artOfWork?.description}}</p>
+          <button (click)="showDialog(artOfWork)" >
+            Edit
+          </button>
+          <button (click)="deleteItem(artOfWork.id)">
+            Delete
+          </button>
         </div>
     </ng-template>
 </p-dataGrid>

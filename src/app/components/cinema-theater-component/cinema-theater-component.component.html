@@ -10,23 +10,43 @@
   <input type="text" name="description" [(ngModel)]="description">
   <p>Address:</p>
   <input type="text" name="address" [(ngModel)]="address">
-
-
-
   <br>
   <br>
   <button type="submit" (click)="showDialog()" >
     add
   </button>
-
   </form>
 </p-dialog>
+
+<p-dialog header="Edit item" [(visible)]="displayEdit">
+  <form #offerEditForm="ngForm" (ngSubmit)="updateItem()">
+  <p>Name:</p>
+  <input type="text"  [(ngModel)] ="institutionEdit.name" [ngModelOptions]="{standalone: true}">
+  <p>Description:</p>
+
+  <input type="text" [(ngModel)] ="institutionEdit.description" [ngModelOptions]="{standalone: true}">
+  <p>Address:</p>
+  <input type="text" [(ngModel)] ="institutionEdit.address" [ngModelOptions]="{standalone: true}">
+  <br>
+  <br>
+  <button type="submit">
+    save
+  </button>
+  </form>
+</p-dialog>
+
 <p-dataGrid [value]="institutions" [paginator]="true" [rows]="9">
     <ng-template let-institution pTemplate="item">
         <div class="ui-g-12 ui-md-3">
           <a [routerLink]="institution.id + '/repertory'">{{institution?.name}}</a>
-          <p>{{institution?.address}}</p>
           <p>{{institution?.description}}</p>
+          <p>{{institution?.address}}</p>
+          <button (click)="showEditDialog(institution)" >
+            Edit
+          </button>
+          <button (click)="deleteItem(institution.id)">
+            Delete
+          </button>
         </div>
     </ng-template>
 </p-dataGrid>
