@@ -31,10 +31,16 @@ export class RepertoryComponent implements OnInit {
     });
   }
 
-  deleteItem(id: Number) {
+
+  addMovie(item) {
+    this.artOfWorkService.addMovie(this.cinemaId ,item.value).subscribe((ok) =>
+    this.getMovies())
+  }
+
+  deleteMovie(id: Number) {
 
     this.artOfWorkService.deleteMovie(this.cinemaId ,id).subscribe((ok) =>
-    this.getArtOfWorks());
+    this.getMovies());
   }
 
   showDialog(artOfWork) {

@@ -35,6 +35,21 @@
   </form>
 </p-dialog>
 
+<p-dialog header="Edit item" [(visible)]="displayEdit">
+  <p>Name:</p>
+  <input type="text">
+  <p>Description:</p>
+
+  <input type="text">
+  <p>Date:</p>
+  <input type="date">
+  <br>
+  <br>
+  <button>
+    save
+  </button>
+</p-dialog>
+
 <p-dataGrid [value]="institutions" [paginator]="true" [rows]="9">
     <ng-template let-institution pTemplate="item">
         <div class="ui-g-12 ui-md-3">
