@@ -34,3 +34,4 @@ export class AccountService {
     return this.http.delete('/api/user/removeFriend?id1=' + friendship.id + '&id2=' + idLogged);
 
 }
+}

@@ -16,7 +16,7 @@ export class InstitutionService {
     return this.http.get('http://localhost:8080/api/theaters');
   }
 
-  addCinema(institution : Institution){
+  addCinema(institution:Institution){
     institution.type = 'Cinema';
     return this.http.post('http://localhost:8080/api/cinemas', institution );
   }
