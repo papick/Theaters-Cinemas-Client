@@ -29,26 +29,12 @@
   <input type="text" [(ngModel)] ="institutionEdit.address" [ngModelOptions]="{standalone: true}">
   <br>
   <br>
-  <button type="submit">
+  <button type="submit" (click)="showEdit()">
     save
   </button>
   </form>
 </p-dialog>
 
-<p-dialog header="Edit item" [(visible)]="displayEdit">
-  <p>Name:</p>
-  <input type="text">
-  <p>Description:</p>
-
-  <input type="text">
-  <p>Date:</p>
-  <input type="date">
-  <br>
-  <br>
-  <button>
-    save
-  </button>
-</p-dialog>
 
 <p-dataGrid [value]="institutions" [paginator]="true" [rows]="9">
     <ng-template let-institution pTemplate="item">

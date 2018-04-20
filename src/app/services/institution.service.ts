@@ -25,4 +25,8 @@ export class InstitutionService {
     return this.http.delete('http://localhost:8080/api/cinemas/'+id);
   }
 
+  updateCinema( cinema : Institution){
+    return this.http.patch('http://localhost:8080/api/cinemas/' + cinema.id , cinema);
+  }
+
 }

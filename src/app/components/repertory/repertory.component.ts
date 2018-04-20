@@ -25,6 +25,7 @@ export class RepertoryComponent implements OnInit {
     this.getArtOfWorks();
   }
 
+
   getArtOfWorks(){
     this.artOfWorkService.getMovies(this.cinemaId).subscribe( (list) => {
       this.artOfWorks = list;
@@ -34,13 +35,13 @@ export class RepertoryComponent implements OnInit {
 
   addMovie(item) {
     this.artOfWorkService.addMovie(this.cinemaId ,item.value).subscribe((ok) =>
-    this.getMovies())
+    this.getArtOfWorks())
   }
 
   deleteMovie(id: Number) {
 
     this.artOfWorkService.deleteMovie(this.cinemaId ,id).subscribe((ok) =>
-    this.getMovies());
+    this.getArtOfWorks());
   }
 
   showDialog(artOfWork) {

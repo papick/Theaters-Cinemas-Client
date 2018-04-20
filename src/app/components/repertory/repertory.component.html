@@ -19,20 +19,6 @@
     </button>
   </form>
 </p-dialog>
-<p-dialog header="Edit item" [(visible)]="displayEdit">
-  <p>Name:</p>
-  <input type="text">
-  <p>Description:</p>
-
-  <input type="text">
-  <p>Date:</p>
-  <input type="date">
-  <br>
-  <br>
-  <button>
-    save
-  </button>
-</p-dialog>
 
 <p-dataGrid [value]="artOfWorks" [paginator]="true" [rows]="9">
     <ng-template let-artOfWork pTemplate="item">
@@ -40,7 +26,7 @@
           <a [routerLink]="artOfWork.name">{{artOfWork?.name}}</a>
           <p>{{artOfWork?.director}}</p>
           <p>{{artOfWork?.description}}</p>
-          <button (click)="showEditDialog()" >
+          <button (click)="showDialog(artOfWork)" >
             Edit
           </button>
           <button (click)="deleteMovie(artOfWork.id)">
