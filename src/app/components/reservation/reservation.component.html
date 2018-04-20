@@ -1,0 +1,7 @@
+<div *ngIf="loggedUser !== null && loggedUser.uloga === 'GUEST'" id="div_friends">
+  <p class="pP"><b>Friends to invite:</b></p>
+  <p class="p" *ngFor="let f of loggedUser.friendList" id="{{f.id}}">{{ f.ime + " " + f.prezime}}
+    <a class="button" style="cursor: pointer" (click)="invite(f,f.id,loggedUser.id)">INVITE</a>
+  </p>
+
+</div>

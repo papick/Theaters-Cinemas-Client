@@ -1,0 +1,25 @@
+.button {
+  background-color: cadetblue; /* Green */
+  border: none;
+  color: white;
+  padding: 2px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.p {
+  color: cadetblue;
+}
+
+.pP{
+  font-size: 20px;
+  color: cadetblue;
+}
+
+div{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}

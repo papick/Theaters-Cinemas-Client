@@ -11,41 +11,64 @@ import {ActivatedRoute} from '@angular/router';
 export class RepertoryComponent implements OnInit {
 
   artOfWorks: any;
-  displayAdd = false;
-  displayEdit = false;
+  displayForm = false;
+  editMode = false;
   cinemaId: Number;
+  artOfWork : ArtOfWork;
   constructor(private artOfWorkService: ArtOfWorkService,private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
+    this.artOfWork = new ArtOfWork();
     this.route.params.subscribe(params => this.cinemaId = +params['cinemaId']);
-    this.getMovies();
+    this.getArtOfWorks();
   }
 
-  getMovies(){
+
+  getArtOfWorks(){
     this.artOfWorkService.getMovies(this.cinemaId).subscribe( (list) => {
       this.artOfWorks = list;
     });
   }
 
+
   addMovie(item) {
     this.artOfWorkService.addMovie(this.cinemaId ,item.value).subscribe((ok) =>
-    this.getMovies())
+    this.getArtOfWorks())
   }
 
-  deleteItem(id: Number) {
-    /*
-    this.institutionService.deleteOffer(id).subscribe((ok) =>
-    this.getOffers());*/
-  }
-  updateItem(id: Number, item ) {
-    /*this.institutionService.updateOffer(id, item.value).subscribe((ok) =>
-      this.getOffers());*/
+  deleteMovie(id: Number) {
+
+    this.artOfWorkService.deleteMovie(this.cinemaId ,id).subscribe((ok) =>
+    this.getArtOfWorks());
   }
 
-  showDialog() {
-    this.displayAdd = !this.displayAdd;
+  showDialog(artOfWork) {
+
+    if(artOfWork){
+      console.log(JSON.stringify(artOfWork));
+      this.artOfWork = artOfWork;
+      this.editMode = true;
+    }else{
+      console.log(JSON.stringify(artOfWork));
+      this.artOfWork = new ArtOfWork();
+    }
+    this.justShow();
+  }
+
+  justShow(){
+    this.displayForm = !this.displayForm;
+  }
+  save(){
+    if(this.editMode){
+      this.artOfWorkService.updateMovie(this.cinemaId ,this.artOfWork).subscribe((ok) =>
+        this.getArtOfWorks());
+        this.editMode = false;
+    }else{
+      this.artOfWorkService.addMovie(this.cinemaId ,this.artOfWork).subscribe((ok) =>
+      this.getArtOfWorks());
+    }
   }
 
 

@@ -42,6 +42,7 @@ import {CalendarModule, DropdownModule} from 'primeng/primeng';
 import { AdminFanZoneNotifyComponent } from './components/admin-fan-zone-notify/admin-fan-zone-notify.component';
 import { AdminFanZoneNotifyWrapperComponent } from './components/admin-fan-zone-notify-wrapper/admin-fan-zone-notify-wrapper.component';
 import {ArtOfWorkService} from './services/artOfWork.service';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import {ArtOfWorkService} from './services/artOfWork.service';
     RequestsComponent,
     AdminFanZoneNotifyComponent,
     AdminFanZoneNotifyWrapperComponent,
+    ReservationComponent,
 
 
   ],
