@@ -43,6 +43,7 @@ import { AdminFanZoneNotifyComponent } from './components/admin-fan-zone-notify/
 import { AdminFanZoneNotifyWrapperComponent } from './components/admin-fan-zone-notify-wrapper/admin-fan-zone-notify-wrapper.component';
 import {ArtOfWorkService} from './services/artOfWork.service';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { InstitutionProfileComponent } from './components/institution-profile/institution-profile.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     AdminFanZoneNotifyComponent,
     AdminFanZoneNotifyWrapperComponent,
     ReservationComponent,
+    InstitutionProfileComponent,
 
 
   ],

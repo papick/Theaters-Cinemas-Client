@@ -19,6 +19,8 @@ import {UsedOfferWrapperComponentComponent} from './components/used-offer-wrappe
  import {RequestsComponent} from './components/requests-component/requests.component';
 import {AdminFanZoneNotifyWrapperComponent} from './components/admin-fan-zone-notify-wrapper/admin-fan-zone-notify-wrapper.component';
 import {ReservationComponent} from './components/reservation/reservation.component';
+import { InstitutionProfileComponent } from './components/institution-profile/institution-profile.component';
+
 
 export const router: Routes = [
 
@@ -38,8 +40,9 @@ export const router: Routes = [
   {path: 'login', component: LogInFormComponentComponent},
   {path: 'register', component: RegisterFormComponentComponent},
   {path: 'cinemas', component: CinemaTheaterComponentComponent},
-  {path: 'cinemas/:cinemaId', component: RepertoryComponent},
+  {path: 'cinemas/:cinemaId', component: InstitutionProfileComponent},
   {path: 'theaters', component: CinemaTheaterComponentComponent},
+  {path: 'theaters/:theaterId', component: InstitutionProfileComponent},
   {path: 'cinemas/:cinemaId/repertory', component: RepertoryComponent},
   {path: 'theaters/:theaterId/repertory', component: RepertoryComponent},
   {path: 'people', component: PeopleComponent},

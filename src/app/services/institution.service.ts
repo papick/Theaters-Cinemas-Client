@@ -13,6 +13,10 @@ export class InstitutionService {
     return this.http.get('http://localhost:8080/api/cinemas');
   }
 
+  getCinema(id: Number) {
+    return this.http.get('http://localhost:8080/api/cinemas/'+id);
+  }
+
   getTheaters() {
     return this.http.get('http://localhost:8080/api/theaters');
   }
