@@ -52,8 +52,8 @@ export class CinemaTheaterComponentComponent implements OnInit {
   }
   updateItem() {
     console.log(this.institutionEdit.id);
-    this.institutionService.updateCinema(this.institutionEdit).subscribe((ok) =>
-      this.getCinemas());
+    /*this.institutionService.updateCinema(this.institutionEdit).subscribe((ok) =>
+      this.getCinemas());*/
   }
 
   showDialog() {

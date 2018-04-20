@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../model/user.model';
 import {AccountService} from '../../services/account.service';
 
@@ -11,6 +11,7 @@ export class RegisterFormComponentComponent implements OnInit {
 
   private user: User;
   private firstPass: string;
+
   constructor(private accountService: AccountService) {
     this.user = new User();
     this.firstPass = '';
@@ -20,6 +21,7 @@ export class RegisterFormComponentComponent implements OnInit {
   }
 
   register() {
+    document.clear();
     this.accountService.register(this.user).subscribe();
   }
 

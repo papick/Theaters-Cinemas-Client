@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ArtOfWorkService} from '../../services/artOfWork.service';
 import {ArtOfWork} from '../../model/artOfWork.model';
 import {ActivatedRoute} from '@angular/router';
@@ -14,8 +14,9 @@ export class RepertoryComponent implements OnInit {
   displayForm = false;
   editMode = false;
   cinemaId: Number;
-  artOfWork : ArtOfWork;
-  constructor(private artOfWorkService: ArtOfWorkService,private route: ActivatedRoute) {
+  artOfWork: ArtOfWork;
+
+  constructor(private artOfWorkService: ArtOfWorkService, private route: ActivatedRoute) {
 
   }
 
@@ -25,48 +26,49 @@ export class RepertoryComponent implements OnInit {
     this.getArtOfWorks();
   }
 
-  getArtOfWorks(){
-    this.artOfWorkService.getMovies(this.cinemaId).subscribe( (list) => {
+  getArtOfWorks() {
+    this.artOfWorkService.getMovies(this.cinemaId).subscribe((list) => {
       this.artOfWorks = list;
     });
   }
 
 
   addMovie(item) {
-    this.artOfWorkService.addMovie(this.cinemaId ,item.value).subscribe((ok) =>
-    this.getMovies())
+    /*this.artOfWorkService.addMovie(this.cinemaId, item.value).subscribe((ok) =>
+      this.getMovies());*/
   }
 
   deleteMovie(id: Number) {
 
-    this.artOfWorkService.deleteMovie(this.cinemaId ,id).subscribe((ok) =>
-    this.getMovies());
+    /*this.artOfWorkService.deleteMovie(this.cinemaId, id).subscribe((ok) =>
+    this.getMovies());*/
   }
 
   showDialog(artOfWork) {
 
-    if(artOfWork){
+    if (artOfWork) {
       console.log(JSON.stringify(artOfWork));
       this.artOfWork = artOfWork;
       this.editMode = true;
-    }else{
+    } else {
       console.log(JSON.stringify(artOfWork));
       this.artOfWork = new ArtOfWork();
     }
     this.justShow();
   }
 
-  justShow(){
+  justShow() {
     this.displayForm = !this.displayForm;
   }
-  save(){
-    if(this.editMode){
-      this.artOfWorkService.updateMovie(this.cinemaId ,this.artOfWork).subscribe((ok) =>
+
+  save() {
+    if (this.editMode) {
+      this.artOfWorkService.updateMovie(this.cinemaId, this.artOfWork).subscribe((ok) =>
         this.getArtOfWorks());
-        this.editMode = false;
-    }else{
-      this.artOfWorkService.addMovie(this.cinemaId ,this.artOfWork).subscribe((ok) =>
-      this.getArtOfWorks());
+      this.editMode = false;
+    } else {
+      this.artOfWorkService.addMovie(this.cinemaId, this.artOfWork).subscribe((ok) =>
+        this.getArtOfWorks());
     }
   }
 
