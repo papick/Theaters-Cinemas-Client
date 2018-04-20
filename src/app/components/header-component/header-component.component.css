@@ -40,11 +40,12 @@
   top: 30px;
 }
 #people{
-  left: 350px;
+
+  left: 450px;
   top: 30px;
 }
 #requests{
-  left: 450px;
+  left: 550px;
   top: 30px;
 }
 
@@ -53,6 +54,7 @@
   top: 2%
 }
 #fanZone{
-  left: 550px;
+
+  left: 350px;
   top: 30px;
 }
