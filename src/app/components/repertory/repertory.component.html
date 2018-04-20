@@ -32,6 +32,9 @@
           <button (click)="deleteMovie(artOfWork.id)">
             Delete
           </button>
+          <button [routerLink]="['/reservation/'+artOfWork.id]">
+            Reserve
+          </button>
         </div>
     </ng-template>
 </p-dataGrid>
