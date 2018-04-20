@@ -39,7 +39,7 @@
 <p-dataGrid [value]="institutions" [paginator]="true" [rows]="9">
     <ng-template let-institution pTemplate="item">
         <div class="ui-g-12 ui-md-3">
-          <a [routerLink]="institution.id + '/repertory'">{{institution?.name}}</a>
+          <a [routerLink]="institution.id">{{institution?.name}}</a>
           <p>{{institution?.description}}</p>
           <p>{{institution?.address}}</p>
           <button (click)="showEditDialog(institution)" >
@@ -47,6 +47,9 @@
           </button>
           <button (click)="deleteItem(institution.id)">
             Delete
+          </button>
+          <button [routerLink]="institution.id + '/repertory'">
+            Repertory
           </button>
         </div>
     </ng-template>

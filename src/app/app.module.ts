@@ -45,6 +45,7 @@ import {ArtOfWorkService} from './services/artOfWork.service';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import {BiddingService} from './services/bidding.service';
 import { BiddingComponentComponent } from './components/bidding-component/bidding-component.component';
+import { InstitutionProfileComponent } from './components/institution-profile/institution-profile.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { BiddingComponentComponent } from './components/bidding-component/biddin
     AdminFanZoneNotifyWrapperComponent,
     ReservationComponent,
     BiddingComponentComponent,
+    InstitutionProfileComponent,
 
 
   ],
