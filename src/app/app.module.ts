@@ -43,6 +43,8 @@ import { AdminFanZoneNotifyComponent } from './components/admin-fan-zone-notify/
 import { AdminFanZoneNotifyWrapperComponent } from './components/admin-fan-zone-notify-wrapper/admin-fan-zone-notify-wrapper.component';
 import {ArtOfWorkService} from './services/artOfWork.service';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import {BiddingService} from './services/bidding.service';
+import { BiddingComponentComponent } from './components/bidding-component/bidding-component.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     AdminFanZoneNotifyComponent,
     AdminFanZoneNotifyWrapperComponent,
     ReservationComponent,
+    BiddingComponentComponent,
 
 
   ],
@@ -82,7 +85,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 
   ],
   providers: [AccountService , NewOfferService,
-    UsedOfferService, InstitutionService , UserService, ArtOfWorkService],
+    UsedOfferService, InstitutionService , UserService, ArtOfWorkService, BiddingService],
 
   bootstrap: [AppComponent]
 })

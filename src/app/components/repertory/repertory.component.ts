@@ -35,7 +35,7 @@ export class RepertoryComponent implements OnInit {
 
   addMovie(item) {
     this.artOfWorkService.addMovie(this.cinemaId ,item.value).subscribe((ok) =>
-    this.getArtOfWorks())
+    this.getArtOfWorks());
   }
 
   deleteMovie(id: Number) {

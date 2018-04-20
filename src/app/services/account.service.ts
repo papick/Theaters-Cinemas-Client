@@ -31,7 +31,7 @@ export class AccountService {
   }
 
   deleteFriend(friendship: Friendship, idLogged: number) {
-    return this.http.delete('/api/user/removeFriend?id1=' + friendship.id + '&id2=' + idLogged);
+    return this.http.delete('http://localhost:8080/api/user/removeFriend?id1=' + friendship.id + '&id2=' + idLogged);
 
 }
 }

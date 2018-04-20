@@ -4,6 +4,8 @@ import {UsedOfferService} from '../../services/usedOfferService';
 import {AccountService} from '../../services/account.service';
 import {User} from '../../model/user.model';
 import {UsedOffer} from './usedOfferInterface';
+import {BiddingService} from '../../services/bidding.service';
+import {Bid} from '../../model/bidding.model';
 
 @Component({
   selector: 'app-used-offer-component',
@@ -13,14 +15,21 @@ import {UsedOffer} from './usedOfferInterface';
 export class UsedOfferComponentComponent implements OnInit {
 
   usedOffers: any;
+  usedOfferEdit: any;
   displayAdd = false;
   displayEdit= false;
+  displayBuy = false;
+  usedOferBuy: any;
   loggedUser: any;
-  constructor(private usedOfferService: UsedOfferService, private  accService: AccountService) { }
+  displayBids = false;
+
+
+  constructor(private usedOfferService: UsedOfferService, private  accService: AccountService,
+              private biddingService: BiddingService) { }
 
   ngOnInit() {
+    this.usedOfferEdit = new UsedOffer();
     this.getOffers();
-
     this.loggedUser = this.accService.getLoggedUser();
   }
 
@@ -39,17 +48,28 @@ export class UsedOfferComponentComponent implements OnInit {
     this.usedOfferService.deleteUsedOffer(id).subscribe((ok) =>
       this.getOffers());
   }
-  updateUsedItem(id: Number, item ) {
-    this.usedOfferService.updateUsedOffer(id, item.value).subscribe((ok) =>
+  updateUsedItem() {
+    console.log(JSON.stringify(this.usedOfferEdit));
+    this.usedOfferService.updateUsedOffer(this.usedOfferEdit.id, this.usedOfferEdit).subscribe((ok) =>
       this.getOffers());
+  }
+  addBid(item) {
+      const bid = new Bid(item.value.bid , this.usedOferBuy , this.loggedUser);
+      console.log(JSON.stringify(item.bid));
+      this.biddingService.addBid(bid).subscribe((ok) => this.biddingService.getBidds(this.usedOferBuy.id));
+
   }
 
   showAddDialog() {
     this.displayAdd = true;
     console.log('OVO JE ITEM: ' + JSON.stringify(this.usedOffers[3]));
   }
-  showEditDialog() {
-    this.displayEdit = true;
+  showBuyDialog(usedOffer) {
+    this.displayBuy = true;
+    this.usedOferBuy = usedOffer;
+  }
+  displayBidsFunction() {
+    this.displayBids = true;
   }
 
   isFanzoneAdminOrLoggedUser(usedOffer) {
@@ -72,10 +92,27 @@ export class UsedOfferComponentComponent implements OnInit {
       return true;
     }
   }
-  isLoggedUser(usedOffer) {
+
+  showEditDialog(itemEdit) {
+    this.usedOfferEdit = itemEdit;
+    this.showEdit();
+  }
+  showEdit() {
+    this.displayEdit = !this.displayEdit;
+  }
+  showButtonBids(usedOffer){
     if (this.loggedUser != null
       && this.loggedUser.uloga === 'GUEST'
       && this.loggedUser.id === usedOffer.customer.id) {
+       return true;
+    }
+  }
+  isLoggedUser(usedOffer) {
+
+    if (this.loggedUser != null
+      && this.loggedUser.uloga === 'GUEST'
+      && this.loggedUser.id === usedOffer.customer.id
+    ) {
       return true;
     }
   }

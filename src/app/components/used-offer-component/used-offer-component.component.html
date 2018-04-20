@@ -12,9 +12,6 @@
     <p>Date:</p>
     <p-calendar [(ngModel)]="date" name="date" [inline]="true"></p-calendar>
 
-
-
-
     <br>
     <br>
     <button type="submit" >
@@ -27,19 +24,39 @@
 
 
 <p-dialog header="Edit item" [(visible)]="displayEdit">
-  <p>Name:</p>
-  <input type="text">
-  <p>Description:</p>
+  <form #offerFormEdit="ngForm" (ngSubmit)="updateUsedItem()">
+    <p>Name:</p>
+    <input type="text"  [(ngModel)] ="usedOfferEdit.name" [ngModelOptions]="{standalone: true}">
+    <p>Description:</p>
 
-  <input type="text">
-  <p>Date:</p>
-  <input type="date">
-  <br>
-  <br>
-  <button>
-    save
-  </button>
+    <input type="text" [(ngModel)] ="usedOfferEdit.description" [ngModelOptions]="{standalone: true}">
+    <p>Date:</p>
+    <input type="text" [(ngModel)] ="usedOfferEdit.date" [ngModelOptions]="{standalone: true}">
+    <br>
+    <br>
+    <button type="submit" (click)="showEdit()">
+      save
+    </button>
+  </form>
 </p-dialog>
+
+
+
+
+
+<p-dialog header="Buy item" [(visible)]="displayBuy">
+  <form #bidForm="ngForm" (ngSubmit)="addBid(bidForm)">
+  <p>Enter bid:</p>
+  <input type="text" name="bid" [(ngModel)]="bid">
+
+  <br>
+  <br>
+  <button type="submit">
+    buy
+  </button>
+  </form>
+</p-dialog>
+
 
 
 <p-dataList [value]="usedOffers" [paginator]="true" [rows]="5" class="lista">
@@ -65,7 +82,7 @@
 
 
 
-          <button (click)="showEditDialog()" *ngIf="isLoggedUser(usedOffer)">
+          <button (click)="showEditDialog(usedOffer)" *ngIf="isLoggedUser(usedOffer)">
             Edit
           </button>
 
@@ -75,15 +92,25 @@
             Delete
           </button>
 
-          <button *ngIf="isOtherGuest(usedOffer)">
+          <button *ngIf="isOtherGuest(usedOffer)" (click)="showBuyDialog(usedOffer)">
             Buy
           </button>
 
 
+          <button (click)="displayBidsFunction()" *ngIf="showButtonBids(usedOffer)">
+            Show bids
+          </button>
+
+
         </div>
-      </div>
+
+        <app-bidding-component [usedOffer]="usedOffer" *ngIf="isLoggedUser(usedOffer)">
+
+        </app-bidding-component>
+
     </div>
     <hr>
+    </div>
   </ng-template>
 </p-dataList>
 
