@@ -23,5 +23,9 @@ export class BiddingComponentComponent implements OnInit {
     );
 
   }
+  accept(item) {
+    this.biddingService.accept(item).subscribe();
+
+  }
 
 }

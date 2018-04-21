@@ -97,9 +97,7 @@
           </button>
 
 
-          <button (click)="displayBidsFunction()" *ngIf="showButtonBids(usedOffer)">
-            Show bids
-          </button>
+
 
 
         </div>
@@ -114,6 +112,33 @@
   </ng-template>
 </p-dataList>
 
+<p-dataList [value]="myBids" [paginator]="true" [rows]="5" class="lista">
 
+  <p-header>
+    myBids
+  </p-header>
+  <ng-template let-myBid pTemplate="item">
+
+    <div class="ui-g ui-fluid car-item">
+      <div class="ui-g-12 ui-md-3" style="text-align:center">
+        <img src="../../assets/defaultImage.jpg">
+      </div>
+      <div class="ui-g-12 ui-md-9 car-details">
+        <div class="ui-g">
+          <div class="ui-g-2 ui-sm-6">Name: </div>
+          <div class="ui-g-10 ui-sm-6">{{myBid.name}}</div>
+
+          <div class="ui-g-2 ui-sm-6">Bid: </div>
+          <div class="ui-g-10 ui-sm-6">{{myBid.bid}}</div>
+
+          <div class="ui-g-2 ui-sm-6">Status: </div>
+          <div class="ui-g-10 ui-sm-6">{{myBid.status}}</div>
+
+      </div>
+      <hr>
+    </div>
+    </div>
+  </ng-template>
+</p-dataList>
 
 

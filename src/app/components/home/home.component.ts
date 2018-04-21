@@ -39,17 +39,9 @@ export class HomeComponent implements OnInit {
 
   save() {
     this.editMode = false;
-    console.log(this.loggedUser);
-    if(this.loggedUser.uloga === 'GUEST'){
-      this.accountService.updateUser(this.loggedUser).subscribe(user => {
+    this.accountService.updateUser(this.loggedUser).subscribe(user => {
         this.loggedUser = user;
       });
-      }else {
-      this.accountService.updateAllUser(this.loggedUser.id, this.loggedUser).subscribe(user => {
-        this.loggedUser = user;
-      });
-    }
-
   }
 
   delete(friendship, id, idLogged) {

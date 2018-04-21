@@ -22,6 +22,7 @@ export class UsedOfferComponentComponent implements OnInit {
   usedOferBuy: any;
   loggedUser: any;
   displayBids = false;
+  myBids: any;
 
 
   constructor(private usedOfferService: UsedOfferService, private  accService: AccountService,
@@ -30,6 +31,7 @@ export class UsedOfferComponentComponent implements OnInit {
   ngOnInit() {
     this.usedOfferEdit = new UsedOffer();
     this.getOffers();
+    this.getMyBids();
     this.loggedUser = this.accService.getLoggedUser();
   }
 
@@ -70,6 +72,9 @@ export class UsedOfferComponentComponent implements OnInit {
   }
   displayBidsFunction() {
     this.displayBids = true;
+  }
+  getMyBids() {
+    this.biddingService.getMyBids().subscribe((myBids) => this.myBids = myBids);
   }
 
   isFanzoneAdminOrLoggedUser(usedOffer) {

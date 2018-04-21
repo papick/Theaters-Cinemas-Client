@@ -9,12 +9,14 @@
       <div class="ui-g-12 ui-md-9 car-details">
         <div class="ui-g">
           <div class="ui-g-2 ui-sm-6">User: </div>
-          <div class="ui-g-10 ui-sm-6">{{bid.user.id}}</div>
+          <div class="ui-g-10 ui-sm-6">{{bid.user.ime}}</div>
 
           <div class="ui-g-2 ui-sm-6">Bid: </div>
           <div class="ui-g-10 ui-sm-6">{{bid.bid}}</div>
 
-          <button>accept</button>
+          <button (click)="accept(bid)">accept</button>
+
+
 
 
 

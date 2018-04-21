@@ -19,7 +19,8 @@ export class AccountService {
   }
 
   login(loginObject: any) {
-    return this.http.post('http://localhost:8080/api/allusers/login', loginObject);
+    console.log(JSON.stringify(loginObject));
+    return this.http.post('http://localhost:8080/api/user/login', loginObject);
   }
 
   updateUser(loginObject: any) {

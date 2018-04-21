@@ -30,6 +30,10 @@
     <input class="p" type="text" *ngIf="editMode" name="brTelefona" [(ngModel)]="loggedUser.brTelefona">
     <p class="p" *ngIf="!editMode">{{loggedUser.brTelefona}}</p>
 
+    <h3 class="p">Status:</h3>
+    <input class="p" type="text" *ngIf="!editMode" name="status" [(ngModel)]="loggedUser.status">
+    <p class="p" *ngIf="!editMode">{{loggedUser.status}}</p>
+
     <button *ngIf="!editMode" (click)="edit()" class="button" style="margin-top: 2%">
       Edit
     </button>

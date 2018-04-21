@@ -18,4 +18,12 @@ export class BiddingService{
     return this.http.post('http://localhost:8080/api/usedoffer/' + item.usedOffer.id + '/bid/', item);
   }
 
+  accept(item){
+    return this.http.post('http://localhost:8080/api/usedoffer/bid/accepted', item);
+  }
+  getMyBids(){
+    return this.http.get('http://localhost:8080/api/usedoffer/bid/mybids/' +
+     JSON.parse(localStorage.getItem('loggedUser')).id);
+  }
+
 }
